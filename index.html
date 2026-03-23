@@ -4,376 +4,610 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gianluca Garofalo | Bio Professionale</title>
+    <link rel="icon" type="image/png" href="./ggBT.png" />
+  <link rel="shortcut icon" href="./ggBT.png" />
+  <link rel="apple-touch-icon" href="./ggBT.png" />
   <style>
     :root {
-      --bg1: #07111f;
-      --bg2: #0d1f38;
-      --card: rgba(255,255,255,0.08);
-      --card-border: rgba(255,255,255,0.14);
-      --text: #eef4ff;
-      --muted: #b8c6df;
-      --accent: #6fb1ff;
-      --accent2: #9f7aea;
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --bg: #f8f6f2;
+      --bg-soft: #f2efe8;
+      --surface: #ffffff;
+      --surface-soft: #fcfbf8;
+      --text: #1c2430;
+      --muted: #66758a;
+      --line: #e6e0d6;
+      --line-strong: #d7cec0;
+      --accent: #2f5fa7;
+      --accent-soft: #eef3fb;
+      --accent-2: #7a5c3e;
+      --shadow: 0 18px 40px rgba(28, 36, 48, 0.06);
+      --shadow-soft: 0 8px 20px rgba(28, 36, 48, 0.04);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1120px;
+      --topbar-height: 78px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
 
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
       color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(111,177,255,0.22), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(159,122,234,0.18), transparent 28%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
-      min-height: 100vh;
+        radial-gradient(circle at top left, rgba(47, 95, 167, 0.05), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(122, 92, 62, 0.05), transparent 22%),
+        linear-gradient(180deg, #fbfaf7 0%, #f6f3ed 100%);
+      line-height: 1.65;
+      padding-top: calc(var(--topbar-height) + 18px);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
     }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(var(--container), calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 0 64px;
+      padding: 18px 0 60px;
     }
 
-    .hero {
-      display: block;
-      margin-bottom: 28px;
-    }
-
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
+    .topbar-shell {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(248, 246, 242, 0.88);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(28, 36, 48, 0.08);
     }
 
-    .hero-main {
-      padding: 38px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 999px;
-      right: -70px;
-      top: -70px;
-      background: radial-gradient(circle, rgba(111,177,255,0.28), transparent 70%);
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(111,177,255,0.12);
-      border: 1px solid rgba(111,177,255,0.22);
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-    }
-
-    .subtitle {
-      margin: 0 0 22px;
-      font-size: 20px;
-      line-height: 1.5;
-      color: var(--muted);
-      //max-width: 700px;
-    }
-
-    .highlight {
-      color: white;
-      font-weight: 700;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .metric {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .hero-side {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-    }
-
-    .card-title {
-      margin: 0 0 12px;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-    }
-
-    .quote {
-      font-size: 24px;
-      line-height: 1.35;
-      margin: 0;
-      font-weight: 600;
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .section {
-      padding: 30px;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    li {
-      margin-bottom: 12px;
-      line-height: 1.55;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      color: #fff;
-      background: linear-gradient(135deg, rgba(111,177,255,0.22), rgba(159,122,234,0.22));
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .focus-box {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(111,177,255,0.08);
-      border: 1px solid rgba(111,177,255,0.18);
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .footer {
-      margin-top: 28px;
-      padding: 24px 30px;
+    .topbar {
+      width: min(var(--container), calc(100% - 32px));
+      min-height: var(--topbar-height);
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
     }
 
-    .footer a {
-      color: white;
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
-      font-weight: 600;
-      padding: 12px 18px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(111,177,255,0.26), rgba(159,122,234,0.22));
-      border: 1px solid rgba(255,255,255,0.12);
+      min-width: 0;
     }
 
-    @media (max-width: 900px) {
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.topbar-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+    .topbar-brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .topbar-nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .topbar-nav a:hover {
+      color: var(--accent);
+    }
+
+    .topbar-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .topbar-nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .hero-main {
+      background: transparent;
+      padding: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(47, 95, 167, 0.08);
+    }
+
+    .hero-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .profile-photo {
+      width: 92px;
+      height: 92px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(28, 36, 48, 0.10);
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+    }
+
+    .role-line {
+      margin-top: 8px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.9;
+      color: #3f4c5f;
+      max-width: 780px;
+    }
+
+    .hero-side {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: sticky;
+      top: 102px;
+    }
+
+    .side-kicker {
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .side-quote {
+      margin: 0 0 18px;
+      font-size: 24px;
+      line-height: 1.4;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #243041;
+    }
+
+    .side-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .bio-box {
+      margin-top: 28px;
+      padding: 26px 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid rgba(47, 95, 167, 0.35);
+      border-radius: 0 22px 22px 0;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .bio-box p {
+      margin: 0;
+      color: #455367;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .bio-box strong {
+      color: #1b2430;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      color: #1b2430;
+    }
+
+    .section-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #526277;
+    }
+
+    .section-card li {
+      margin-bottom: 12px;
+      line-height: 1.75;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #385a8c;
+      background: #f3f7fd;
+      border: 1px solid rgba(47, 95, 167, 0.10);
+    }
+
+    .focus-box {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #faf8f3;
+      border: 1px solid #ebe4d8;
+      color: #526277;
+      line-height: 1.85;
+    }
+
+    .book-section,
+    .channel-section-wrap {
+      margin-top: 34px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    .section-intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .book-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .book-cover-card {
+      padding: 16px;
+      border-radius: 22px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+    }
+
+    .book-cover-card img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 16px 32px rgba(28, 36, 48, 0.10);
+    }
+
+    .book-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .section-kicker {
+      margin: 28px 0 10px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .section-kicker:first-of-type {
+      margin-top: 20px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 17px 18px;
+      border-radius: 18px;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 6px 16px rgba(28, 36, 48, 0.03);
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(28, 36, 48, 0.06);
+      border-color: rgba(47, 95, 167, 0.20);
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fb;
+      border: 1px solid #e7ecf4;
+    }
+
+    .link-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #355680;
+      display: block;
+    }
+
+    .link-text strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #1e2835;
+    }
+
+    .link-text span {
+      color: #66758a;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .amazon-cta {
+      margin-top: 16px;
+      max-width: 320px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(28, 36, 48, 0.08);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
       .hero,
-      .grid {
+      .two-col,
+      .book-layout,
+      .links-grid {
         grid-template-columns: 1fr;
       }
 
-      .metrics {
-        grid-template-columns: 1fr;
+      .hero-side {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --topbar-height: 96px;
       }
 
-      .footer {
+      body {
+        padding-top: calc(var(--topbar-height) + 10px);
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 20px));
+        padding: 20px 0 44px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+      }
+
+      .topbar-nav {
+        gap: 14px;
+      }
+
+      .hero-head {
         flex-direction: column;
         align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero-side,
+      .section-card,
+      .book-section,
+      .channel-section-wrap {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: clamp(34px, 10vw, 46px);
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+        line-height: 1.85;
       }
     }
   </style>
 </head>
 <body>
+
+  <div class="topbar-shell">
+    <div class="topbar">
+      <a class="topbar-brand" href="#bio">
+        <div class="topbar-logo">
+          <img src="./ggBT.png" alt="Logo Gianluca Garofalo" />
+        </div>
+        <div class="topbar-brand-text">Gianluca Garofalo</div>
+      </a>
+
+      <nav class="topbar-nav">
+        <a href="#bio">Bio</a>
+        <a href="#competenze">Competenze</a>
+        <a href="#libro">In evidenza</a>
+        <a href="#canali">Canali</a>
+      </nav>
+    </div>
+  </div>
+
   <div class="container">
-    <style>
-      .links-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 18px;
-      }
 
-      .link-card {
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        padding: 16px 18px;
-        border-radius: 18px;
-        text-decoration: none;
-        color: var(--text);
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.08);
-        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      }
+    <section class="hero" id="bio">
+      <div class="hero-main">
+        <div class="eyebrow">Bio professionale</div>
 
-      .link-card:hover {
-        transform: translateY(-2px);
-        background: rgba(255,255,255,0.08);
-        border-color: rgba(111,177,255,0.30);
-      }
-
-      .link-icon {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, rgba(111,177,255,0.20), rgba(159,122,234,0.20));
-        border: 1px solid rgba(255,255,255,0.10);
-      }
-
-      .link-icon svg {
-        width: 20px;
-        height: 20px;
-        fill: #ffffff;
-      }
-
-      .link-text strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 16px;
-      }
-
-      .link-text span {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .channel-section {
-        margin-top: 28px;
-      }
-
-      .section-kicker {
-        margin: 0 0 10px;
-        font-size: 13px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--accent);
-      }
-
-      .bio-box {
-        margin-top: 18px;
-        padding: 20px;
-        border-radius: 20px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.08);
-      }
-
-      .bio-box p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      @media (max-width: 900px) {
-        .links-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-    <section class="hero">
-      <div class="panel hero-main">
-        <!--div class="eyebrow">Bio professionale</div-->
-        <div style="display:flex; align-items:center; gap:24px; margin-bottom:24px;">
-          <div style="width:90px;height:90px;border-radius:90px;overflow:hidden;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:12px;color:#aaa;"><img src="./profilo.jpg" style="width: 90px"/></span>
+        <div class="hero-head">
+          <div class="profile-photo">
+            <img src="./profilo.jpg" alt="Gianluca Garofalo" />
           </div>
-          <div style="flex:1;">
-            <h1 style="margin:0;">Gianluca Garofalo</h1>
-            <div class="small" style="margin-top:6px;">Automation · Generative AI · AI Governance · Divulgazione</div>
+
+          <div>
+            <h1>Gianluca Garofalo</h1>
+            <div class="role-line">Automation · Generative AI · AI Governance · Divulgazione</div>
           </div>
-          <!--div style="width:70px;height:70px;border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:11px;color:#aaa;">LOGO</span>
-          </div-->
         </div>
 
         <p class="subtitle">
           Opero nel settore IT da oltre trent’anni, occupandomi di sviluppo software, automazione dei processi e modernizzazione di sistemi enterprise, in particolare in ambito assicurativo e finanziario.
-          <br/><br/>Negli ultimi anni mi sono concentrato sull’intelligenza artificiale generativa e su come queste tecnologie possano essere integrate nei processi organizzativi in modo efficace, concreto e responsabile.
-          <br/><br/>Accanto all’attività professionale porto avanti un impegno costante di divulgazione sui temi dell’AI: scrivo articoli e saggi sull’impatto tecnologico e culturale dell’intelligenza artificiale e partecipo a momenti di confronto pubblico, con l’obiettivo di rendere queste tecnologie più comprensibili e accessibili anche al di fuori degli ambienti strettamente tecnici.
-         </p>
+          <br /><br />
+          Negli ultimi anni mi sono concentrato sull’intelligenza artificiale generativa e su come queste tecnologie possano essere integrate nei processi organizzativi in modo efficace, concreto e responsabile.
+          <br /><br />
+          Accanto all’attività professionale porto avanti un impegno costante di divulgazione sui temi dell’AI: scrivo articoli e saggi sull’impatto tecnologico e culturale dell’intelligenza artificiale e partecipo a momenti di confronto pubblico, con l’obiettivo di rendere queste tecnologie più comprensibili e accessibili anche al di fuori degli ambienti strettamente tecnici.
+        </p>
 
         <div class="bio-box">
           <p>
-            Membro del <strong style="color:#ffffff;">Comitato Tecnico Scientifico di ENIA</strong> (Fondazione Ente Nazionale per l’Intelligenza Artificiale), contribuisco al dibattito su innovazione, governance e responsabilità nell’uso dell’AI.
-           <br/>I miei interventi si concentrano su come l’intelligenza artificiale
-            stia cambiando concretamente il modo di lavorare, apprendere e prendere decisioni, con particolare attenzione
-            al contesto educativo e allo sviluppo del pensiero critico.
-            <br/>Credo che l’intelligenza artificiale non debba rimanere un tema per pochi specialisti. Una parte importante del mio lavoro oggi è proprio contribuire a portarla “sulla tavola di tutti”: aiutare organizzazioni, professionisti e cittadini a comprenderne opportunità, limiti e implicazioni.
-            </p>
+            Membro del <strong>Comitato Tecnico Scientifico di ENIA</strong> (Fondazione Ente Nazionale per l’Intelligenza Artificiale), contribuisco al dibattito su innovazione, governance e responsabilità nell’uso dell’AI.
+            <br />
+            I miei interventi si concentrano su come l’intelligenza artificiale stia cambiando concretamente il modo di lavorare, apprendere e prendere decisioni, con particolare attenzione al contesto educativo e allo sviluppo del pensiero critico.
+            <br />
+            Credo che l’intelligenza artificiale non debba rimanere un tema per pochi specialisti. Una parte importante del mio lavoro oggi è proprio contribuire a portarla “sulla tavola di tutti”: aiutare organizzazioni, professionisti e cittadini a comprenderne opportunità, limiti e implicazioni.
+          </p>
         </div>
-
-        <div class="metrics">
       </div>
 
-      
+      <aside class="hero-side">
+        <div class="side-kicker">Visione</div>
+        <p class="side-quote">
+          Rendere l’AI comprensibile, concreta e culturalmente leggibile.
+        </p>
+        <p class="side-text">
+          Tecnologia, pensiero critico e divulgazione non come mondi separati, ma come parti di uno stesso lavoro: aiutare persone e organizzazioni a orientarsi con maggiore consapevolezza.
+        </p>
+      </aside>
     </section>
 
-    <section class="grid">
-      <div class="panel section">
+    <section class="two-col" id="competenze">
+      <div class="section-card">
         <h2>Aree di competenza</h2>
         <ul>
           <li>Automazione dei processi e test automation</li>
@@ -392,7 +626,7 @@
         </div>
       </div>
 
-      <div class="panel section">
+      <div class="section-card">
         <h2>Divulgazione</h2>
         <ul>
           <li>Comprensione dell’AI nella vita quotidiana</li>
@@ -403,219 +637,146 @@
         </ul>
 
         <div class="focus-box">
-          L’obiettivo è rendere accessibili temi complessi, con un linguaggio chiaro ma rigoroso,
-          costruendo un ponte tra innovazione tecnologica e consapevolezza civica.
+          L’obiettivo è rendere accessibili temi complessi, con un linguaggio chiaro ma rigoroso, costruendo un ponte tra innovazione tecnologica e consapevolezza civica.
         </div>
       </div>
     </section>
-	
-	
-	
 
+    <section class="book-section" id="libro">
+      <h2>Il Dio che stiamo creando</h2>
+      <p class="section-intro">
+        Un saggio che intreccia tecnologia, simboli e bisogno umano di senso, osservando il modo in cui gli algoritmi stanno occupando spazi un tempo riservati al sacro.
+      </p>
 
-	
-	 <section class="panel section" style="margin-top: 28px;">
- <h2>Il Dio che stiamo creando</h2>
+      <div class="book-layout">
+        <div class="book-cover-card">
+          <img src="./ildiche.jpg" alt="Copertina del libro Il Dio che stiamo creando" />
 
-<div class="panel section">
-
-
-
-            <span style="font-size:12px;color:#aaa;"><img src="./ildiche.jpg" style="width: 100%; border-radius:16px;"/></span>
-      
-	  
-
-	  
-	  
-
-       
-    
-	
-	        <div class="focus-box">
-Gli algoritmi non sono dèi, ma sempre più spesso li trattiamo come tali. Questo saggio esplora con sguardo filosofico e narrativo come Google, i social e l’intelligenza artificiale stiano occupando lo spazio che un tempo apparteneva al sacro: quello delle risposte definitive.<br/>
-	Non è un manuale tecnico né una guida rapida, ma una riflessione sul bisogno umano di senso che, dai fuochi delle prime comunità, passa attraverso i templi e arriva fino agli schermi luminosi che consultiamo ogni giorno.
-        </div>
-
-        <div class="focus-box">
-<strong style="color:#ffffff;">Per chi è:</strong> lettori interessati a filosofia, cultura digitale e antropologia del sacro. Chi vuole comprendere le radici profonde del nostro rapporto con la tecnologia, senza illusioni né semplificazioni.
-	    </div>
-		
-		
-		        <div class="focus-box">
-<strong style="color:#ffffff;">Perché leggerlo ora:</strong> perché mentre gli algoritmi diventano il nuovo altare della società, è urgente chiedersi che cosa adoriamo quando crediamo di non adorare nulla.
-        </div>
-		
-		
-      </div>
-	  <a class="link-card" href="https://www.amazon.it/dp/B0FQC3V8BT" target="_blank" rel="noopener noreferrer" style="margin-top: 20px;">
+          <a class="link-card amazon-cta" href="https://www.amazon.it/dp/B0FQC3V8BT" target="_blank" rel="noopener noreferrer">
             <div class="link-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M6.5 17.5c3.5 2 7.5 2 11 0 .3-.2.7 0 .7.3 0 .1-.1.2-.2.3-3.8 3-9.8 3-13.6 0-.2-.1-.2-.4 0-.5.1-.2.4-.2.6-.1Zm10.8-1.1c-.2-.2-1.3-.1-1.8 0-.2 0-.3-.1-.3-.2 0-.1.1-.2.2-.3 1.4-.8 3.7-.6 3.9-.3.2.3-.1 2.6-1.4 3.6-.2.1-.3 0-.3-.1-.1-.2.2-1.2-.3-1.7ZM7 9.5c0-1.7 1.3-2.9 3.3-2.9 1 0 1.8.2 2.4.6.6.4.9 1 .9 1.9v3.5c0 .7.1 1.2.4 1.7.1.2 0 .4-.1.5l-1.2 1c-.2.1-.4.1-.5 0-.3-.4-.5-.7-.7-1.2-.8.8-1.6 1.2-2.8 1.2-1.6 0-2.8-1-2.8-2.5 0-1.2.6-2 1.7-2.5.9-.4 2.2-.5 3.2-.6v-.2c0-.4 0-.8-.2-1.1-.2-.3-.5-.4-.9-.4-.7 0-1.3.4-1.5 1.1 0 .2-.2.3-.4.3l-1.6-.2c-.2 0-.3-.2-.3-.4Zm5.1 2.2c-.6 0-1.3.1-1.9.3-.5.2-.9.6-.9 1.2 0 .6.4 1 .9 1 .4 0 .8-.2 1.1-.5.4-.4.5-.8.5-1.4v-.6Z"/>
-</svg>  
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 17.5c3.5 2 7.5 2 11 0 .3-.2.7 0 .7.3 0 .1-.1.2-.2.3-3.8 3-9.8 3-13.6 0-.2-.1-.2-.4 0-.5.1-.2.4-.2.6-.1Zm10.8-1.1c-.2-.2-1.3-.1-1.8 0-.2 0-.3-.1-.3-.2 0-.1.1-.2.2-.3 1.4-.8 3.7-.6 3.9-.3.2.3-.1 2.6-1.4 3.6-.2.1-.3 0-.3-.1-.1-.2.2-1.2-.3-1.7ZM7 9.5c0-1.7 1.3-2.9 3.3-2.9 1 0 1.8.2 2.4.6.6.4.9 1 .9 1.9v3.5c0 .7.1 1.2.4 1.7.1.2 0 .4-.1.5l-1.2 1c-.2.1-.4.1-.5 0-.3-.4-.5-.7-.7-1.2-.8.8-1.6 1.2-2.8 1.2-1.6 0-2.8-1-2.8-2.5 0-1.2.6-2 1.7-2.5.9-.4 2.2-.5 3.2-.6v-.2c0-.4 0-.8-.2-1.1-.2-.3-.5-.4-.9-.4-.7 0-1.3.4-1.5 1.1 0 .2-.2.3-.4.3l-1.6-.2c-.2 0-.3-.2-.3-.4Zm5.1 2.2c-.6 0-1.3.1-1.9.3-.5.2-.9.6-.9 1.2 0 .6.4 1 .9 1 .4 0 .8-.2 1.1-.5.4-.4.5-.8.5-1.4v-.6Z"/>
+              </svg>
             </div>
-            <div class="link-text"><strong>Amazon</strong><span>Il Dio che stiamo creando</span></div>
-          </a>
-	  
-      
-    </section>
-	
-	
-	
-	
-	
-	<!--
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	    <section class="grid" style="margin-top: 20px;">
-      <div class="panel section">
-            <span style="font-size:12px;color:#aaa;"><img src="./ildiche.jpg" style="width: 100%; border-radius:16px;"/></span>
-      
-	  
-	  <a class="link-card" href="https://www.amazon.it/dp/B0FQC3V8BT" target="_blank" rel="noopener noreferrer" style="margin-top: 20px;">
-            <div class="link-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M6.5 17.5c3.5 2 7.5 2 11 0 .3-.2.7 0 .7.3 0 .1-.1.2-.2.3-3.8 3-9.8 3-13.6 0-.2-.1-.2-.4 0-.5.1-.2.4-.2.6-.1Zm10.8-1.1c-.2-.2-1.3-.1-1.8 0-.2 0-.3-.1-.3-.2 0-.1.1-.2.2-.3 1.4-.8 3.7-.6 3.9-.3.2.3-.1 2.6-1.4 3.6-.2.1-.3 0-.3-.1-.1-.2.2-1.2-.3-1.7ZM7 9.5c0-1.7 1.3-2.9 3.3-2.9 1 0 1.8.2 2.4.6.6.4.9 1 .9 1.9v3.5c0 .7.1 1.2.4 1.7.1.2 0 .4-.1.5l-1.2 1c-.2.1-.4.1-.5 0-.3-.4-.5-.7-.7-1.2-.8.8-1.6 1.2-2.8 1.2-1.6 0-2.8-1-2.8-2.5 0-1.2.6-2 1.7-2.5.9-.4 2.2-.5 3.2-.6v-.2c0-.4 0-.8-.2-1.1-.2-.3-.5-.4-.9-.4-.7 0-1.3.4-1.5 1.1 0 .2-.2.3-.4.3l-1.6-.2c-.2 0-.3-.2-.3-.4Zm5.1 2.2c-.6 0-1.3.1-1.9.3-.5.2-.9.6-.9 1.2 0 .6.4 1 .9 1 .4 0 .8-.2 1.1-.5.4-.4.5-.8.5-1.4v-.6Z"/>
-</svg>  
+            <div class="link-text">
+              <strong>Amazon</strong>
+              <span>Il Dio che stiamo creando</span>
             </div>
-            <div class="link-text"><strong>Amazon</strong><span>Il Dio che stiamo creando</span></div>
           </a>
-	  
-	  
-	  
-      </div>
-
-      <div class="panel section">
-        <h2>Il Dio che stiamo creando</h2>
-    
-	
-	        <div class="focus-box">
-Gli algoritmi non sono dèi, ma sempre più spesso li trattiamo come tali. Questo saggio esplora con sguardo filosofico e narrativo come Google, i social e l’intelligenza artificiale stiano occupando lo spazio che un tempo apparteneva al sacro: quello delle risposte definitive.<br/>
-	Non è un manuale tecnico né una guida rapida, ma una riflessione sul bisogno umano di senso che, dai fuochi delle prime comunità, passa attraverso i templi e arriva fino agli schermi luminosi che consultiamo ogni giorno.
         </div>
 
-        <div class="focus-box">
-<strong style="color:#ffffff;">Per chi è:</strong> lettori interessati a filosofia, cultura digitale e antropologia del sacro. Chi vuole comprendere le radici profonde del nostro rapporto con la tecnologia, senza illusioni né semplificazioni.
-	    </div>
-		
-		
-		        <div class="focus-box">
-<strong style="color:#ffffff;">Perché leggerlo ora:</strong> perché mentre gli algoritmi diventano il nuovo altare della società, è urgente chiedersi che cosa adoriamo quando crediamo di non adorare nulla.
+        <div class="book-content">
+          <div class="focus-box">
+            Gli algoritmi non sono dèi, ma sempre più spesso li trattiamo come tali. Questo saggio esplora con sguardo filosofico e narrativo come Google, i social e l’intelligenza artificiale stiano occupando lo spazio che un tempo apparteneva al sacro: quello delle risposte definitive.
+            <br />
+            Non è un manuale tecnico né una guida rapida, ma una riflessione sul bisogno umano di senso che, dai fuochi delle prime comunità, passa attraverso i templi e arriva fino agli schermi luminosi che consultiamo ogni giorno.
+          </div>
+
+          <div class="focus-box">
+            <strong style="color:#1b2430;">Per chi è:</strong> lettori interessati a filosofia, cultura digitale e antropologia del sacro. Chi vuole comprendere le radici profonde del nostro rapporto con la tecnologia, senza illusioni né semplificazioni.
+          </div>
+
+          <div class="focus-box">
+            <strong style="color:#1b2430;">Perché leggerlo ora:</strong> perché mentre gli algoritmi diventano il nuovo altare della società, è urgente chiedersi che cosa adoriamo quando crediamo di non adorare nulla.
+          </div>
         </div>
-		
-		
       </div>
     </section>
-	
-	-->
-	
-	
 
-    <section class="panel section" style="margin-top: 28px;">
+    <section class="channel-section-wrap" id="canali">
       <h2>Canali e pubblicazioni</h2>
-      <div class="small">Una selezione dei principali spazi in cui pubblica contenuti, articoli e materiali divulgativi.</div>
+      <p class="section-intro">
+        Una selezione dei principali spazi in cui pubblico contenuti, articoli, video e materiali divulgativi.
+      </p>
 
-<div class="channel-section">
-        <div class="section-kicker">Canali editoriali</div>
-        <div class="links-grid">
-          <a class="link-card" href="https://medium.com/@gianluca.garofalo" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M4.37 7.09C4.4 6.79 4.26 6.5 4 6.34L2 3.94V3.58H8.2L13 14.09L17.22 3.58H23V3.94L21.29 5.58C21.14 5.69 21.07 5.89 21.1 6.08V17.92C21.07 18.11 21.14 18.31 21.29 18.42L22.96 20.06V20.42H14.56V20.06L16.29 18.38C16.46 18.21 16.46 18.16 16.46 17.92V8.35L11.65 20.38H11L5.4 8.35V16.4C5.35 16.72 5.45 17.06 5.68 17.29L7.93 20.02V20.38H1.54V20.02L3.79 17.29C4.01 17.06 4.1 16.72 4.04 16.4V7.09H4.37Z"/></svg></div>
-            <div class="link-text"><strong>Medium</strong><span>Articoli e approfondimenti su AI e società.</span></div>
-          </a>
-          <a class="link-card" href="https://stultiferanavis.it/autori/gianluca-garofalo" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M12 2L13.8 7.5H19.5L14.85 10.9L16.65 16.5L12 13.1L7.35 16.5L9.15 10.9L4.5 7.5H10.2L12 2Z"/></svg></div>
-            <div class="link-text"><strong>Stultifera Navis</strong><span>Contributi editoriali e riflessioni.</span></div>
-          </a>
-          <a class="link-card" href="https://www.amazon.it/stores/author/B0FJYFBHP5/about" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
+      <div class="section-kicker">Canali editoriali</div>
+      <div class="links-grid">
+        <a class="link-card" href="https://medium.com/@gianluca.garofalo" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M4.37 7.09C4.4 6.79 4.26 6.5 4 6.34L2 3.94V3.58H8.2L13 14.09L17.22 3.58H23V3.94L21.29 5.58C21.14 5.69 21.07 5.89 21.1 6.08V17.92C21.07 18.11 21.14 18.31 21.29 18.42L22.96 20.06V20.42H14.56V20.06L16.29 18.38C16.46 18.21 16.46 18.16 16.46 17.92V8.35L11.65 20.38H11L5.4 8.35V16.4C5.35 16.72 5.45 17.06 5.68 17.29L7.93 20.02V20.38H1.54V20.02L3.79 17.29C4.01 17.06 4.1 16.72 4.04 16.4V7.09H4.37Z"/></svg></div>
+          <div class="link-text"><strong>Medium</strong><span>Articoli e approfondimenti su AI e società.</span></div>
+        </a>
+
+        <a class="link-card" href="https://stultiferanavis.it/autori/gianluca-garofalo" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M12 2L13.8 7.5H19.5L14.85 10.9L16.65 16.5L12 13.1L7.35 16.5L9.15 10.9L4.5 7.5H10.2L12 2Z"/></svg></div>
+          <div class="link-text"><strong>Stultifera Navis</strong><span>Contributi editoriali e riflessioni.</span></div>
+        </a>
+
+        <a class="link-card" href="https://www.amazon.it/stores/author/B0FJYFBHP5/about" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M6.5 17.5c3.5 2 7.5 2 11 0 .3-.2.7 0 .7.3 0 .1-.1.2-.2.3-3.8 3-9.8 3-13.6 0-.2-.1-.2-.4 0-.5.1-.2.4-.2.6-.1Zm10.8-1.1c-.2-.2-1.3-.1-1.8 0-.2 0-.3-.1-.3-.2 0-.1.1-.2.2-.3 1.4-.8 3.7-.6 3.9-.3.2.3-.1 2.6-1.4 3.6-.2.1-.3 0-.3-.1-.1-.2.2-1.2-.3-1.7ZM7 9.5c0-1.7 1.3-2.9 3.3-2.9 1 0 1.8.2 2.4.6.6.4.9 1 .9 1.9v3.5c0 .7.1 1.2.4 1.7.1.2 0 .4-.1.5l-1.2 1c-.2.1-.4.1-.5 0-.3-.4-.5-.7-.7-1.2-.8.8-1.6 1.2-2.8 1.2-1.6 0-2.8-1-2.8-2.5 0-1.2.6-2 1.7-2.5.9-.4 2.2-.5 3.2-.6v-.2c0-.4 0-.8-.2-1.1-.2-.3-.5-.4-.9-.4-.7 0-1.3.4-1.5 1.1 0 .2-.2.3-.4.3l-1.6-.2c-.2 0-.3-.2-.3-.4Zm5.1 2.2c-.6 0-1.3.1-1.9.3-.5.2-.9.6-.9 1.2 0 .6.4 1 .9 1 .4 0 .8-.2 1.1-.5.4-.4.5-.8.5-1.4v-.6Z"/>
-</svg>  
-            </div>
-            <div class="link-text"><strong>Amazon Author</strong><span>Libri e pubblicazioni.</span></div>
-          </a>
-        </div>
-           
+              <path d="M6.5 17.5c3.5 2 7.5 2 11 0 .3-.2.7 0 .7.3 0 .1-.1.2-.2.3-3.8 3-9.8 3-13.6 0-.2-.1-.2-.4 0-.5.1-.2.4-.2.6-.1Zm10.8-1.1c-.2-.2-1.3-.1-1.8 0-.2 0-.3-.1-.3-.2 0-.1.1-.2.2-.3 1.4-.8 3.7-.6 3.9-.3.2.3-.1 2.6-1.4 3.6-.2.1-.3 0-.3-.1-.1-.2.2-1.2-.3-1.7ZM7 9.5c0-1.7 1.3-2.9 3.3-2.9 1 0 1.8.2 2.4.6.6.4.9 1 .9 1.9v3.5c0 .7.1 1.2.4 1.7.1.2 0 .4-.1.5l-1.2 1c-.2.1-.4.1-.5 0-.3-.4-.5-.7-.7-1.2-.8.8-1.6 1.2-2.8 1.2-1.6 0-2.8-1-2.8-2.5 0-1.2.6-2 1.7-2.5.9-.4 2.2-.5 3.2-.6v-.2c0-.4 0-.8-.2-1.1-.2-.3-.5-.4-.9-.4-.7 0-1.3.4-1.5 1.1 0 .2-.2.3-.4.3l-1.6-.2c-.2 0-.3-.2-.3-.4Zm5.1 2.2c-.6 0-1.3.1-1.9.3-.5.2-.9.6-.9 1.2 0 .6.4 1 .9 1 .4 0 .8-.2 1.1-.5.4-.4.5-.8.5-1.4v-.6Z"/>
+            </svg>
+          </div>
+          <div class="link-text"><strong>Amazon Author</strong><span>Libri e pubblicazioni.</span></div>
+        </a>
       </div>
 
-      
-      <div class="channel-section">
-        <div class="section-kicker">Canali social</div>
-        <div class="links-grid">
-          <a class="link-card" href="https://www.linkedin.com/in/gianlucagarofalo/" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.34 17V10.87H6.3V17H8.34M7.32 9.93A1.18 1.18 0 1 0 7.32 7.57A1.18 1.18 0 0 0 7.32 9.93M17.7 17V13.44C17.7 11.53 16.68 10.64 15.32 10.64C14.22 10.64 13.73 11.25 13.45 11.67V10.87H11.41C11.44 11.4 11.41 17 11.41 17H13.45V13.58C13.45 13.39 13.46 13.21 13.52 13.07C13.67 12.7 14 12.32 14.58 12.32C15.35 12.32 15.66 12.91 15.66 13.77V17H17.7Z"/></svg>
-            </div>
-            <div class="link-text"><strong>LinkedIn</strong><span>Profilo professionale e attività divulgativa.</span></div>
-          </a>
-          <a class="link-card" href="https://www.youtube.com/channel/UCbsNr1Jhrf1XbEqUVnNMVlQ" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2C0 8 .5 12 .5 12s0 4 .6 5.8a3 3 0 0 0 2.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1c.6-1.8.6-5.8.6-5.8s0-4-.6-5.8ZM9.5 15.5v-7l6 3.5-6 3.5Z"/></svg>
-            </div>
-            <div class="link-text"><strong>YouTube</strong><span>Video divulgativi e interventi.</span></div>
-          </a>
-          <a class="link-card" href="https://www.instagram.com/garofalo_gianluca/" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm4.75-3.1a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
-            </div>
-            <div class="link-text"><strong>Instagram</strong><span>Video e contenuti brevi sull’AI.</span></div>
-          </a>
-          <a class="link-card" href="https://x.com/ggarofalo76" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 10.2 22.5.5H20l-7 8-5.6-8H.5l8.7 12.4L.5 23.5H3l7.3-8.3 5.8 8.3h6.9l-8.8-13.3Zm-2.7 3.1-1.1-1.5L4.1 2.9h2.8l5.1 7.2 1.1 1.5 6.6 9.3h-2.8l-5.4-7.6Z"/></svg>
-            </div>
-            <div class="link-text"><strong>X / Twitter</strong><span>Commenti e riflessioni rapide.</span></div>
-          </a>
-          <a class="link-card" href="https://www.threads.com/@garofalo_gianluca" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
- <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.028-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.811-.365-.478-.863-.718-1.471-.718h-.06c-.664.009-1.254.207-1.748.59-.527.407-.799.974-.809 1.687l-2.04-.057c.028-1.335.553-2.439 1.518-3.195.857-.67 1.967-1.037 3.112-1.052.052-.001.103-.001.155-.001 1.223 0 2.24.375 3.024 1.117.908.861 1.426 2.167 1.539 3.882.573.292 1.083.645 1.521 1.05 1.283 1.171 1.93 2.729 1.817 4.457-.14 2.127-1.18 4.045-2.928 5.416-1.618 1.266-3.786 1.946-6.274 1.966z"/></svg>
-            </div>
-            <div class="link-text"><strong>Threads</strong><span>Conversazioni e insight brevi.</span></div>
-          </a>
-          <a class="link-card" href="https://www.facebook.com/gianluca.garofalo.10" target="_blank" rel="noopener noreferrer">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v5h4v-5h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-</svg>
-            </div>
-            <div class="link-text"><strong>Facebook</strong><span>Contenuti e divulgazione social.</span></div>
-          </a>
+      <div class="section-kicker">Canali social</div>
+      <div class="links-grid">
+        <a class="link-card" href="https://www.linkedin.com/in/gianlucagarofalo/" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.34 17V10.87H6.3V17H8.34M7.32 9.93A1.18 1.18 0 1 0 7.32 7.57A1.18 1.18 0 0 0 7.32 9.93M17.7 17V13.44C17.7 11.53 16.68 10.64 15.32 10.64C14.22 10.64 13.73 11.25 13.45 11.67V10.87H11.41C11.44 11.4 11.41 17 11.41 17H13.45V13.58C13.45 13.39 13.46 13.21 13.52 13.07C13.67 12.7 14 12.32 14.58 12.32C15.35 12.32 15.66 12.91 15.66 13.77V17H17.7Z"/></svg>
+          </div>
+          <div class="link-text"><strong>LinkedIn</strong><span>Profilo professionale e attività divulgativa.</span></div>
+        </a>
 
-<a class="link-card" href="https://whatsapp.com/channel/0029VbC7n019Gv7OkrT0GV3d" target="_blank" rel="noopener noreferrer">
-  <div class="link-icon">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20.5 3.5A11.8 11.8 0 0 0 12 .5C5.7.5.7 5.5.7 11.8c0 2.1.6 4.2 1.7 6L.5 23.5l5.9-1.9c1.7.9 3.6 1.4 5.6 1.4 6.3 0 11.3-5 11.3-11.3 0-3-1.2-5.9-3.3-8.2zM12 21c-1.8 0-3.5-.5-5-1.3l-.4-.2-3.5 1.1 1.1-3.4-.3-.5a9.3 9.3 0 0 1-1.4-4.9C2.5 6.8 6.8 2.5 12 2.5c2.5 0 4.8 1 6.6 2.8A9.3 9.3 0 0 1 21.5 12c0 5.2-4.3 9-9.5 9zm5.3-6.8c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 .1-.2-.2-.9-1-1.7-1.7-.6-.6-1.3-1.4-1.5-1.7-.2-.3 0-.5.2-.7.2-.2.3-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.7-1.7-.9-2.3-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.4z"/>
-    </svg>
-  </div>
-  <div class="link-text">
-    <strong>Canale WhatsApp</strong>
-    <span>Aggiornamenti diretti, contenuti e nuove pubblicazioni.</span>
-  </div>
-</a>
+        <a class="link-card" href="https://www.youtube.com/channel/UCbsNr1Jhrf1XbEqUVnNMVlQ" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2C0 8 .5 12 .5 12s0 4 .6 5.8a3 3 0 0 0 2.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1c.6-1.8.6-5.8.6-5.8s0-4-.6-5.8ZM9.5 15.5v-7l6 3.5-6 3.5Z"/></svg>
+          </div>
+          <div class="link-text"><strong>YouTube</strong><span>Video divulgativi e interventi.</span></div>
+        </a>
 
+        <a class="link-card" href="https://www.instagram.com/garofalo_gianluca/" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm4.75-3.1a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+          </div>
+          <div class="link-text"><strong>Instagram</strong><span>Video e contenuti brevi sull’AI.</span></div>
+        </a>
 
-			
-        </div>
+        <a class="link-card" href="https://x.com/ggarofalo76" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 10.2 22.5.5H20l-7 8-5.6-8H.5l8.7 12.4L.5 23.5H3l7.3-8.3 5.8 8.3h6.9l-8.8-13.3Zm-2.7 3.1-1.1-1.5L4.1 2.9h2.8l5.1 7.2 1.1 1.5 6.6 9.3h-2.8l-5.4-7.6Z"/></svg>
+          </div>
+          <div class="link-text"><strong>X / Twitter</strong><span>Commenti e riflessioni rapide.</span></div>
+        </a>
+
+        <a class="link-card" href="https://www.threads.com/@garofalo_gianluca" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.028-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.811-.365-.478-.863-.718-1.471-.718h-.06c-.664.009-1.254.207-1.748.59-.527.407-.799.974-.809 1.687l-2.04-.057c.028-1.335.553-2.439 1.518-3.195.857-.67 1.967-1.037 3.112-1.052.052-.001.103-.001.155-.001 1.223 0 2.24.375 3.024 1.117.908.861 1.426 2.167 1.539 3.882.573.292 1.083.645 1.521 1.05 1.283 1.171 1.93 2.729 1.817 4.457-.14 2.127-1.18 4.045-2.928 5.416-1.618 1.266-3.786 1.946-6.274 1.966z"/>
+            </svg>
+          </div>
+          <div class="link-text"><strong>Threads</strong><span>Conversazioni e insight brevi.</span></div>
+        </a>
+
+        <a class="link-card" href="https://www.facebook.com/gianluca.garofalo.10" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v5h4v-5h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+            </svg>
+          </div>
+          <div class="link-text"><strong>Facebook</strong><span>Contenuti e divulgazione social.</span></div>
+        </a>
+
+        <a class="link-card" href="https://whatsapp.com/channel/0029VbC7n019Gv7OkrT0GV3d" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 3.5A11.8 11.8 0 0 0 12 .5C5.7.5.7 5.5.7 11.8c0 2.1.6 4.2 1.7 6L.5 23.5l5.9-1.9c1.7.9 3.6 1.4 5.6 1.4 6.3 0 11.3-5 11.3-11.3 0-3-1.2-5.9-3.3-8.2zM12 21c-1.8 0-3.5-.5-5-1.3l-.4-.2-3.5 1.1 1.1-3.4-.3-.5a9.3 9.3 0 0 1-1.4-4.9C2.5 6.8 6.8 2.5 12 2.5c2.5 0 4.8 1 6.6 2.8A9.3 9.3 0 0 1 21.5 12c0 5.2-4.3 9-9.5 9zm5.3-6.8c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 .1-.2-.2-.9-1-1.7-1.7-.6-.6-1.3-1.4-1.5-1.7-.2-.3 0-.5.2-.7.2-.2.3-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.7-1.7-.9-2.3-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.4z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <strong>Canale WhatsApp</strong>
+            <span>Aggiornamenti diretti, contenuti e nuove pubblicazioni.</span>
+          </div>
+        </a>
       </div>
 
-      
+      <div class="footer-note">
+        Una presenza digitale costruita tra tecnica, cultura e divulgazione, con particolare attenzione al rapporto tra intelligenza artificiale, società e pensiero critico.
+      </div>
     </section>
 
-    <!--section class="panel footer">
-      <div>
-        <h2 style="margin-bottom:8px;">Profilo ideale per incontri divulgativi</h2>
-        <div class="small">Interventi pensati per cittadini, scuole, contesti pubblici e organizzazioni che vogliono affrontare il tema AI in modo concreto, accessibile e non superficiale.</div>
-      </div>
-      <a href="https://ggarofalo-dev.github.io/bio.html" target="_blank" rel="noopener noreferrer">Versione online</a>
-  </section-->
   </div>
 </body>
 </html>
