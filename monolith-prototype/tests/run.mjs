@@ -2,3 +2,4 @@
 import './physics.test.mjs';
 import './timeline.test.mjs';
 import './scene.test.mjs';
+import './tour.test.mjs';

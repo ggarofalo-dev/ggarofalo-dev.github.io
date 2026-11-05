@@ -1,3 +1,5 @@
+> Edizione guidata: WASD e pointer lock sono sostituiti da scelte di destinazione, trasferimenti di 2–4 secondi e lettura a camera ferma. L’altezza è di 10 unità. Quattro stazioni vengono rivelate dal risveglio. Vedere README.md per il comportamento corrente.
+
 # MONOLITH / The hall remembers
 
 ## Regia implementata

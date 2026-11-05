@@ -1,9 +1,11 @@
+> Aggiornamento guidato: aggiunti test su tutti i percorsi tra territori, altezza di 10 unità, margini di sicurezza, archivio originale e nodi UI. Il runtime principale non importa Explorer e non richiede pointer lock. La resa visiva guidata resta non verificata in questo ambiente.
+
 # Verifica effettiva — 5 novembre 2026
 
 ## Superato
 
-- 12 test Node nel processo corrente: collisioni, limiti, damping, timeline, stagger, reset, adattamento DPR, smussi e grafo reale Three.js r180.
-- Generazione degli otto moduli browser da TypeScript mediante lo stripper nativo di Node; import relativi risolti.
+- 14 test Node nel processo corrente: collisioni, limiti, damping, timeline, stagger, reset, adattamento DPR, smussi e grafo reale Three.js r180.
+- Generazione degli dieci moduli browser da TypeScript mediante lo stripper nativo di Node; import relativi risolti.
 - Build statica offline in `dist/`, Three.js e font locali, licenze incluse.
 - Server HTTP: documento, moduli, CSS, Three.js, font, favicon e licenze rispondono 200; risorsa inesistente risponde 404.
 - Test del grafo: 33 ostacoli principali, 6 pannelli, 8 diaframmi, batch istanziati, materiali con mappe, tre reazioni sincronizzate e ripristino. Nessuna immagine è stata prodotta da questo test.

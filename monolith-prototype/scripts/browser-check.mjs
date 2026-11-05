@@ -15,28 +15,35 @@ try{
  page.on('pageerror',error=>report.errors.push(error.message));page.on('console',message=>{if(message.type()==='error')report.errors.push(message.text());});
  page.on('response',response=>{if(response.status()>=400)report.responses.push([response.status(),response.url()]);});
  await page.goto(`http://127.0.0.1:${app.address().port}`);
- await page.waitForFunction(()=>window.monolithState?.phase==='intro',{},{timeout:90000});
- await page.waitForTimeout(2500);await page.screenshot({path:path.join(root,'validation/prologue.png')});
- await page.locator('#skip-intro').click();await page.waitForFunction(()=>window.monolithState.phase==='explore');
- assert(await page.locator('#pause').isVisible());
- await page.locator('#enter').click();await page.waitForFunction(()=>!window.monolithState.paused);
- await page.waitForTimeout(800);await page.screenshot({path:path.join(root,'validation/hall-1080p.png')});
- const start=await page.evaluate(()=>window.monolithState.position);
- await page.keyboard.down('Shift');await page.keyboard.down('w');
- await page.waitForFunction(()=>window.monolithState.distance<28,{},{timeout:20000});
- await page.keyboard.up('w');await page.keyboard.up('Shift');await page.waitForTimeout(500);
- const near=await page.evaluate(()=>window.monolithState);assert(near.position[2]<start[2]-80);assert(near.position[2]>-27);assert(await page.locator('#interaction').isVisible());
- await page.keyboard.press('e');await page.waitForFunction(()=>window.monolithState.phase==='activation');
- await page.waitForFunction(()=>window.monolithState.activation>7,{},{timeout:15000});
- await page.screenshot({path:path.join(root,'validation/awakening.png')});
- await page.waitForFunction(()=>window.monolithState.phase==='awake',{},{timeout:20000});
- await page.screenshot({path:path.join(root,'validation/the-human-variable.png')});
+ await page.waitForFunction(()=>['travel','activation'].includes(window.monolithState?.phase),{},{timeout:90000});
+ await page.screenshot({path:path.join(root,'validation/guided-approach.png')});
+ // No click, keyboard input or pointer lock before the opening completes.
+ assert(await page.locator('#pause').isHidden());assert(await page.locator('#tools').isHidden());
+ await page.waitForFunction(()=>window.monolithState.phase==='activation',{},{timeout:25000});
+ assert(await page.locator('#interaction').isHidden());
+ assert.equal(await page.evaluate(()=>document.pointerLockElement),null);
+ await page.waitForFunction(()=>window.monolithState.activation>7,{},{timeout:15000});await page.screenshot({path:path.join(root,'validation/awakening.png')});
+ await page.waitForFunction(()=>window.monolithState.phase==='hub',{},{timeout:25000});
+ assert(await page.locator('#territory-dock').isVisible());
+ await page.screenshot({path:path.join(root,'validation/guided-hub.png')});
+ for(const id of ['build','think','speak','write']){
+  await page.locator('[data-territory="'+id+'"]').click();
+  await page.waitForFunction(target=>window.monolithState.phase==='territory'&&window.monolithState.territory===target,id,{timeout:10000});
+  assert(await page.locator('#reader').isVisible());assert((await page.locator('#reader-body').innerText()).length>200);
+  assert.equal(await page.evaluate(()=>window.monolithState.position[1]),10);
+  assert.equal(await page.evaluate(()=>document.pointerLockElement),null);
+  await page.screenshot({path:path.join(root,'validation/guided-'+id+'.png')});
+ }
+ assert.equal(await page.locator('#reader-body article').count(),8);
+ await page.locator('#reader-close').click();assert(await page.locator('#reader').isHidden());
+ await page.locator('[data-territory="speak"]').click();await page.locator('#skip-journey').click();
+ assert.equal(await page.evaluate(()=>window.monolithState.phase),'territory');assert.equal(await page.locator('#reader-body article').count(),6);
  await page.keyboard.press('F3');await page.waitForTimeout(1000);report.measurements=await page.locator('#debug').innerText();
- await page.keyboard.press('Escape');await page.waitForFunction(()=>window.monolithState.paused);
- assert(await page.locator('#pause').isVisible());
- await page.selectOption('#quality','low');assert.equal(await page.evaluate(()=>window.monolithState.quality),'low');
- await page.locator('#reduce').click();assert.equal(await page.locator('#reduce').getAttribute('aria-pressed'),'true');
- await page.locator('#restart').click();await page.waitForFunction(()=>window.monolithState.phase==='explore');assert.equal((await page.evaluate(()=>window.monolithState)).activation,0);
+ await page.locator('#reader-close').click();await page.locator('#reduce').click();
+ await page.locator('#hub-button').click();assert.equal(await page.evaluate(()=>window.monolithState.phase),'hub');
+ await page.locator('[data-territory="think"]').click();assert.equal(await page.evaluate(()=>window.monolithState.phase),'territory');
+ await page.selectOption('#quality','low');await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>window.monolithState.quality),'low');
+ await page.keyboard.press('r');await page.waitForFunction(()=>window.monolithState.phase==='hub');assert.equal((await page.evaluate(()=>window.monolithState)).activation,13);
  assert.deepEqual(report.errors,[]);assert.deepEqual(report.responses,[]);report.status='passed';
 }catch(error){report.status='blocked-or-failed';report.reason=error.message;process.exitCode=1;console.error(error.message);}
 finally{await browser?.close();await new Promise(r=>app.close(r));await fs.writeFile(path.join(root,'validation/browser-report.json'),JSON.stringify(report,null,2));}

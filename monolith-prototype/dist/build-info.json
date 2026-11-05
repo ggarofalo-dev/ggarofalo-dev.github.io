@@ -2,7 +2,7 @@
   "mode": "offline-native-typescript-strip",
   "typechecked": false,
   "viteBuild": false,
-  "modules": 8,
+  "modules": 10,
   "threeRevision": "180",
-  "generated": "2026-11-05T12:59:01.549Z"
+  "generated": "2026-11-05T13:35:17.258Z"
 }
