@@ -1,0 +1,22 @@
+{
+  "syntax": "passed",
+  "http": [
+    "index",
+    "assets/main.js",
+    "assets/style.css",
+    "assets/world.js",
+    "assets/rendering.js",
+    "vendor/three.module.js",
+    "vendor/three.core.js",
+    "monolith.svg",
+    "space-grotesk.woff2",
+    "licenses/THREE-LICENSE.txt",
+    "licenses/SPACE-GROTESK-OFL.txt"
+  ],
+  "imports": "passed",
+  "licenses": "passed",
+  "typecheck": "not available",
+  "vite": "dependencies unavailable",
+  "visual": "not tested",
+  "status": "passed"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "monolith-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5173",
+    "test": "node tests/run.mjs",
+    "build:offline": "node scripts/offline.mjs build",
+    "dev:offline": "node scripts/offline.mjs serve",
+    "validate": "node scripts/validate.mjs",
+    "test:browser": "node scripts/browser-check.mjs"
+  },
+  "dependencies": {"three": "0.180.0"},
+  "devDependencies": {"@types/three": "0.180.0", "typescript": "~5.9.3", "vite": "^7.2.2"},
+  "engines": {"node": ">=22.18.0"}
+}

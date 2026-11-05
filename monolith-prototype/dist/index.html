@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b0d"><meta name="description" content="MONOLITH. Uno spazio da attraversare. Un sistema da risvegliare. Un prototipo tridimensionale di Gianluca Garofalo."><title>MONOLITH — Gianluca Garofalo</title><link rel="icon" type="image/svg+xml" href="./monolith.svg"><link rel="stylesheet" href="./assets/style.css"></head>
+<body>
+<main id="experience" aria-label="MONOLITH, ambiente tridimensionale esplorabile"><canvas id="world" tabindex="0" aria-label="Scena 3D. WASD per muoversi, mouse per guardare, E per interagire, Escape per liberare il puntatore."></canvas></main>
+<div id="loading" role="status" aria-live="polite"><div class="loading-kicker">GIANLUCA GAROFALO / REAL-TIME STUDY 001</div><h1>MONOLITH<span>_</span></h1><p>Uno spazio da attraversare.<br>Un sistema da risvegliare.</p><div class="loading-track" role="progressbar" aria-label="Preparazione dello spazio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="loading-bar"></div></div><span id="loading-message">INIZIALIZZAZIONE DEL CAMPO</span><button id="skip-intro" hidden>Salta il prologo ↗</button></div>
+<div class="frame-mark frame-mark-top" aria-hidden="true"><span>M / 001</span><span id="phase-label">THE HALL</span><span>G. GAROFALO</span></div>
+<div id="cinema-bars" aria-hidden="true"></div><div id="fade" aria-hidden="true"></div>
+<div id="crosshair" aria-hidden="true" hidden></div>
+<div id="interaction" hidden><span id="interaction-key">E</span><span id="interaction-text">RISVEGLIA IL MONOLITE</span></div>
+<div id="chapter" aria-live="polite" aria-atomic="true"></div>
+<section id="pause" class="pause-panel" aria-labelledby="pause-title" hidden><span class="eyebrow">MONOLITH / VERTICAL SLICE</span><h2 id="pause-title">La scala cambia.<br>La scelta resta <em>umana.</em></h2><p id="pause-description">Sei dentro la sala. Avvicinati al monolite.</p><button id="enter" class="enter-button">ENTRA NELLO SPAZIO <span>↗</span></button><div class="control-legend"><span><b>W A S D</b> Muoviti</span><span><b>MOUSE</b> Guarda</span><span><b>SHIFT</b> Accelera</span><span><b>E</b> Interagisci</span><span><b>ESC</b> Libera il puntatore</span><span><b>R</b> Rivedi il prologo</span></div><p class="pause-note">Il mouse viene catturato soltanto dopo il tuo clic. Premi H per i comandi, F3 per le prestazioni.</p><button id="restart">Ricomincia la sequenza ↻</button></section>
+<div id="first-help" hidden>WASD / MUOVITI <span>SHIFT / ACCELERA</span> E / INTERAGISCI <span>ESC / PAUSA</span></div>
+<div id="tools"><button id="sound" aria-pressed="false" aria-label="Attiva audio procedurale">AUDIO OFF</button><label>QUALITÀ <select id="quality" aria-label="Qualità grafica"><option value="low">Essenziale</option><option value="balanced" selected>Cinematica</option><option value="high">Ultra</option></select></label><button id="reduce" aria-pressed="false">MOVIMENTO RIDOTTO</button><button id="help" aria-label="Apri comandi e pausa">H / COMANDI</button></div>
+<div id="position-label" aria-hidden="true">HALL / 240 × 100 × 400</div>
+<div id="debug" hidden role="status" aria-live="off"></div>
+<div id="touch-controls" hidden><div id="joystick" aria-label="Movimento touch"><i></i></div><button id="touch-interact" aria-label="Interagisci con il monolite">E</button><span>Trascina a destra per guardare</span></div>
+<section id="failure" role="alert" hidden><span class="eyebrow">MONOLITH / RENDERING NON DISPONIBILE</span><h2>Questo spazio<br>richiede WebGL 2.</h2><p id="failure-message">Il browser non ha potuto creare il contesto grafico. Prova un browser desktop con accelerazione hardware attiva.</p><button id="retry">Riprova</button><p>Il sito personale esistente non è stato modificato.</p></section>
+<noscript><div class="no-script">MONOLITH richiede JavaScript e WebGL 2 per l’esplorazione tridimensionale. Il sito personale esistente rimane separato da questo prototipo.</div></noscript>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="./assets/main.js"></script>
+</body></html>
