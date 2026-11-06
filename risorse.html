@@ -1,311 +1,138 @@
-<!DOCTYPE html>
-<html lang="it">
+<!doctype html><html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Risorse | Gianluca Garofalo</title>
-  <meta name="description" content="Presentazioni, articoli e video di Gianluca Garofalo: risorse per approfondire intelligenza artificiale, fiducia e pensiero critico." />
-  <link rel="icon" type="image/png" href="./ggBT.png" />
-  <link rel="apple-touch-icon" href="./ggBT.png" />
-  <style>
-    :root { --text: #1c2430; --muted: #66758a; --accent: #2f5fa7; --line: #e6e0d6; --topbar-height: 78px; }
-    * { box-sizing: border-box; }
-    body { margin: 0; color: var(--text); font-family: Inter, Arial, Helvetica, sans-serif; background: radial-gradient(circle at top left, rgba(47,95,167,.05), transparent 24%), linear-gradient(180deg, #fbfaf7, #f6f3ed); line-height: 1.65; min-height: 100vh; }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-    html { scroll-padding-top: calc(var(--topbar-height) + 18px); }
-    body { padding-top: var(--topbar-height); }
-    .topbar-shell { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(248,246,242,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(28,36,48,.08); }
-    .topbar, main, footer { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-    .topbar { min-height: 78px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .topbar-logo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .topbar-logo img { width: 75px; height: 75px; object-fit: contain; }
-    .topbar-nav { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
-    .topbar-nav a { color: var(--muted); font-size: 14px; text-decoration: none; }
-    .topbar-nav a:hover, .topbar-nav a[aria-current] { color: var(--accent); }
-    .topbar-nav a[aria-current] { text-decoration: underline; text-underline-offset: 8px; }
-    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
-    main { padding: 54px 0 64px; }
-    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
-    h1 { font-size: clamp(36px, 6vw, 52px); line-height: 1.15; letter-spacing: -.03em; margin: 14px 0 18px; }
-    .intro { color: var(--muted); font-size: 18px; max-width: 650px; margin: 0 0 36px; }
-    .download-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 18px 40px rgba(28,36,48,.06); }
-    .download-card + .download-card { margin-top: 28px; }
-    .preview { display: flex; align-items: center; background: #1b1f2a; }
-    .preview--slide img { height: auto; padding: 0; }
-    .preview--video { position: relative; }
-    .preview--video img { height: auto; padding: 0; }
-    .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 68px; height: 48px; border-radius: 14px; background: #c00; color: #fff; font-size: 25px; box-shadow: 0 4px 16px rgba(0,0,0,.25); }
-    .preview--video:hover .play-icon { background: #a00; }
-    .preview img { width: 100%; height: 100%; max-height: 440px; object-fit: contain; padding: 28px; }
-    .preview.preview--slide img, .preview.preview--video img { height: auto; padding: 0; }
-    .preview--article { background: #f2efe8; }
-    .preview.preview--article img { height: 320px; padding: 0; object-fit: cover; }
-    .publications { margin-top: 52px; }
-    .section-title { margin-bottom: 12px; }
-    .section-description { max-width: 740px; color: var(--muted); margin: 0 0 28px; }
-    .document { padding: 32px; }
-    .category { margin: 0 0 12px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-    h2 { margin: 0 0 16px; font-size: clamp(24px, 3vw, 30px); line-height: 1.3; letter-spacing: -.02em; }
-    .description { color: var(--muted); margin: 0 0 20px; }
-    .metadata { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
-    .download-button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; background: var(--accent); color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-    .download-button:hover { background: #244b86; }
-    .download-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    footer { padding: 24px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; text-align: center; }
-    @media (max-width: 720px) {
-      :root { --topbar-height: 180px; }
-      .topbar { flex-direction: column; align-items: flex-start; justify-content: center; padding: 12px 0; }
-      .topbar-nav { gap: 14px; }
-    }
-    @media (max-width: 760px) {
-      main { padding-top: 32px; }
-      .download-card { grid-template-columns: 1fr; }
-      .document { padding: 24px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#060707"><title>Risorse — Gianluca Garofalo</title>
+<meta name="description" content="Presentazioni, articoli e video su AI, fiducia, scuola e responsabilità.">
+<link rel="canonical" href="https://ggarofalo-dev.github.io/risorse.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Risorse — Gianluca Garofalo">
+<meta property="og:description" content="Presentazioni, articoli e video su AI, fiducia, scuola e responsabilità.">
+<meta property="og:url" content="https://ggarofalo-dev.github.io/risorse.html">
+<meta property="og:image" content="https://ggarofalo-dev.github.io/assets/social.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="ggBT.png" type="image/png">
+<link rel="preload" href="assets/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/human-variable.css">
+<script type="module" src="assets/app.js"></script>
 </head>
-<body>
-  <header class="topbar-shell">
-    <div class="topbar">
-      <a class="topbar-logo" href="index.html" aria-label="Gianluca Garofalo, pagina principale"><img src="./ggBT.png" alt="Logo Gianluca Garofalo" width="75" height="75" /></a>
-      <nav class="topbar-nav" aria-label="Navigazione principale">
-        <a href="index.html#bio">Bio</a>
-        <a href="index.html#competenze">Competenze</a>
-        <a href="index.html#talk">Talk</a>
-        <a href="index.html#libro">In evidenza</a>
-        <a href="index.html#canali">Canali</a>
-        <a href="risorse.html" aria-current="page">Risorse</a>
-      </nav>
-    </div>
-  </header>
-  <script>
-    // Keep the content below the fixed menu, including when links wrap on mobile.
-    (() => {
-      const header = document.querySelector('.topbar-shell');
-      const syncHeaderHeight = () => {
-        document.documentElement.style.setProperty('--topbar-height', `${header.getBoundingClientRect().height}px`);
-      };
-      syncHeaderHeight();
-      if ('ResizeObserver' in window) {
-        new ResizeObserver(syncHeaderHeight).observe(header);
-      } else {
-        window.addEventListener('resize', syncHeaderHeight);
-      }
-    })();
-  </script>
-  <main>
-    <span class="eyebrow">Da leggere e da guardare</span>
-    <h1>Risorse</h1>
-    <p class="intro">Presentazioni, articoli e video per approfondire i temi dei miei incontri e continuare la riflessione.</p>
-    <!-- Per aggiungere un documento, duplica l'articolo e aggiorna anteprima, descrizione, metadati e file. -->
-    <article class="download-card" aria-labelledby="slides-ai-title">
-      <a class="preview" href="Slides071126_V01-preview.png" aria-label="Ingrandisci l'illustrazione della copertina">
-        <img src="Slides071126_V01-preview.png" alt="Illustrazione tratta dalla copertina della presentazione: rete neurale con un percorso evidenziato in arancio" width="1250" height="1327" />
-      </a>
-      <div class="document">
-        <p class="category">Presentazione · Intelligenza artificiale</p>
-        <h2 id="slides-ai-title">L'AI ha sempre una risposta. Ma è quella giusta?</h2>
-        <p class="description">Fiducia, scelte e pensiero critico nell'era dell'intelligenza artificiale. Un percorso dalle basi dell'AI generativa ai bias e agli errori dei modelli, per riflettere su quanto ci fidiamo delle risposte e su come usare questi strumenti nella vita quotidiana senza smettere di pensare.</p>
-        <p class="metadata">PowerPoint (.pptx) · 26 slide · 573 KB · Versione 01</p>
-        <div class="download-actions">
-          <a class="download-button" href="AperitivoConLaScienza_V01.pptx" download="AperitivoConLaScienza_V01.pptx" aria-label="Scarica la presentazione L'AI ha sempre una risposta. Ma è quella giusta? in formato PowerPoint">Scarica PowerPoint</a>
-          <a class="download-button" href="AperitivoConLaScienza_V01.pdf" download="AperitivoConLaScienza_V01.pdf" aria-label="Scarica la presentazione L'AI ha sempre una risposta. Ma è quella giusta? in formato PDF">Scarica PDF</a>
-        </div>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="generative-ai-title">
-      <a class="preview preview--slide" href="GenerativeAI-preview.png" aria-label="Ingrandisci la copertina di Generative AI">
-        <img src="GenerativeAI-preview.png" alt="Copertina di Generative AI: Quanto del tuo lavoro cognitivo sei disposto a delegare? di Gianluca Garofalo" width="1280" height="720" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Presentazione · Intelligenza artificiale</p>
-        <h2 id="generative-ai-title">Generative AI: cosa sta cambiando davvero per professionisti e imprese</h2>
-        <p class="description">Quanto del tuo lavoro cognitivo sei disposto a delegare? Una presentazione per Rotary International – Milano Digital che esplora il passaggio dall'AI classica alla generativa e agentica, il funzionamento degli LLM e la delega cognitiva. Spunti per professionisti e PMI su automazione, responsabilità nelle decisioni e alfabetizzazione all'AI.</p>
-        <p class="metadata">PowerPoint (.pptx) · 15 slide · 348 KB</p>
-        <a class="download-button" href="GenerativeAI.pptx" download="GenerativeAI.pptx" aria-label="Scarica la presentazione Generative AI in formato PowerPoint">Scarica la presentazione</a>
-      </div>
-    </article>
-    <section class="publications" aria-labelledby="publications-title">
-      <h2 id="publications-title" class="section-title">Articoli e video</h2>
-      <p class="section-description">Una selezione di otto articoli su lavoro, scuola, fiducia e responsabilità, insieme ai video. Dal più recente al più lontano nel tempo.</p>
-    <article class="download-card" aria-labelledby="materiale-2-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/prof-ma-come-fa-a-sapere-se-lho-fatto-io-o-chatgpt-5fccc05d1a4c" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: «Prof, ma come fa a sapere se l’ho fatto io o ChatGPT?» (si apre in una nuova scheda)">
-        <img src="materiali/medium-5fccc05d1a4c.jpg" alt="Anteprima: «Prof, ma come fa a sapere se l’ho fatto io o ChatGPT?»" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-2-title">«Prof, ma come fa a sapere se l’ho fatto io o ChatGPT?»</h2>
-        <p class="description">AI, compiti e apprendimento: una riflessione su come valutare ciò che uno studente comprende quando lavora con ChatGPT.</p>
-        <p class="metadata"><time datetime="2026-09-21T11:22:37.000Z">21 settembre 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/prof-ma-come-fa-a-sapere-se-lho-fatto-io-o-chatgpt-5fccc05d1a4c" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: «Prof, ma come fa a sapere se l’ho fatto io o ChatGPT?» (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-3-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/se-nessuno-pu%C3%B2-permettersi-di-fermarsi-a5a738ca1037" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Se nessuno può permettersi di fermarsi (si apre in una nuova scheda)">
-        <img src="materiali/medium-a5a738ca1037.jpg" alt="Anteprima: Se nessuno può permettersi di fermarsi" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-3-title">Se nessuno può permettersi di fermarsi</h2>
-        <p class="description">La corsa ai modelli più avanzati e il problema degli incentivi: perché rallentare diventa difficile anche quando emergono dubbi sulla sicurezza.</p>
-        <p class="metadata"><time datetime="2026-09-10T09:32:30.000Z">10 settembre 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/se-nessuno-pu%C3%B2-permettersi-di-fermarsi-a5a738ca1037" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Se nessuno può permettersi di fermarsi (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-4-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/lultima-generazione-che-ricorda-il-mondo-prima-dell-ai-c6d4ebf73c92" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: L’ultima generazione che ricorda il mondo prima dell’AI (si apre in una nuova scheda)">
-        <img src="materiali/medium-c6d4ebf73c92.jpg" alt="Anteprima: L’ultima generazione che ricorda il mondo prima dell’AI" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-4-title">L’ultima generazione che ricorda il mondo prima dell’AI</h2>
-        <p class="description">Il confronto tra chi ricorda il mondo prima dell’AI generativa e chi crescerà considerandola una presenza normale nella vita quotidiana.</p>
-        <p class="metadata"><time datetime="2026-09-01T11:47:21.000Z">1 settembre 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/lultima-generazione-che-ricorda-il-mondo-prima-dell-ai-c6d4ebf73c92" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: L’ultima generazione che ricorda il mondo prima dell’AI (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-5-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/lai-sta-uscendo-dallo-schermo-853574c6bf0f" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: L’AI sta uscendo dallo schermo (si apre in una nuova scheda)">
-        <img src="materiali/medium-853574c6bf0f.jpg" alt="Anteprima: L’AI sta uscendo dallo schermo" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-5-title">L’AI sta uscendo dallo schermo</h2>
-        <p class="description">Quando l’AI acquisisce un corpo: robot umanoidi, abitudini domestiche e nuove domande sul rapporto tra persone e macchine.</p>
-        <p class="metadata"><time datetime="2026-08-27T13:30:45.000Z">27 agosto 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/lai-sta-uscendo-dallo-schermo-853574c6bf0f" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: L’AI sta uscendo dallo schermo (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-7-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/pap%C3%A0-ma-come-si-fa-un-videogioco-92089042919e" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Papà, ma come si fa un videogioco? (si apre in una nuova scheda)">
-        <img src="materiali/medium-92089042919e.jpg" alt="Anteprima: Papà, ma come si fa un videogioco?" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-7-title">Papà, ma come si fa un videogioco?</h2>
-        <p class="description">Costruire un videogioco insieme a un figlio usando l’AI: come cambiano la programmazione, il controllo del risultato e il significato di competenza.</p>
-        <p class="metadata"><time datetime="2026-08-21T08:41:44.000Z">21 agosto 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/pap%C3%A0-ma-come-si-fa-un-videogioco-92089042919e" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Papà, ma come si fa un videogioco? (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-8-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/quando-la-produttivit%C3%A0-supera-la-comprensione-e3e6f76ace79" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Quando la produttività supera la comprensione (si apre in una nuova scheda)">
-        <img src="materiali/medium-e3e6f76ace79.jpg" alt="Anteprima: Quando la produttività supera la comprensione" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-8-title">Quando la produttività supera la comprensione</h2>
-        <p class="description">Il debito cognitivo: cosa accade quando produciamo codice, documenti e decisioni più velocemente di quanto riusciamo a comprenderli.</p>
-        <p class="metadata"><time datetime="2026-07-20T14:11:57.000Z">20 luglio 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/quando-la-produttivit%C3%A0-supera-la-comprensione-e3e6f76ace79" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Quando la produttività supera la comprensione (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-9-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/il-diritto-di-non-essere-giudicati-da-una-macchina-esiste-gi%C3%A0-45c8bc318e41" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Il diritto di non essere giudicati da una macchina esiste già? (si apre in una nuova scheda)">
-        <img src="materiali/medium-45c8bc318e41.png" alt="Anteprima: Il diritto di non essere giudicati da una macchina esiste già?" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo · Medium</p>
-        <h2 id="materiale-9-title">Il diritto di non essere giudicati da una macchina esiste già?</h2>
-        <p class="description">Decisioni automatizzate e tutela delle persone: una riflessione sui limiti della delega agli algoritmi e sul ruolo della responsabilità umana.</p>
-        <p class="metadata"><time datetime="2026-07-10T09:16:19.000Z">10 luglio 2026</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/il-diritto-di-non-essere-giudicati-da-una-macchina-esiste-gi%C3%A0-45c8bc318e41" target="_blank" rel="noopener noreferrer" aria-label="Leggi su Medium: Il diritto di non essere giudicati da una macchina esiste già? (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-10-title">
-      <a class="preview preview--video" href="https://www.youtube.com/watch?v=OVKK1wD9I-g" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Il Dio che stiamo creando | Keynote all&#39;International AI Week ENIA 2026 (si apre in una nuova scheda)">
-        <img src="materiali/youtube-OVKK1wD9I-g.jpg" alt="Anteprima: Il Dio che stiamo creando | Keynote all&#39;International AI Week ENIA 2026" loading="lazy" />
-        <span class="play-icon" aria-hidden="true">&#9654;</span>
-      </a>
-      <div class="document">
-        <p class="category">Video · YouTube</p>
-        <h2 id="materiale-10-title">Il Dio che stiamo creando | Keynote all&#39;International AI Week ENIA 2026</h2>
-        <p class="description">Il keynote all’International AI Week ENIA 2026: conoscenza, fiducia nelle risposte dell’AI e responsabilità che rimangono umane.</p>
-        <p class="metadata"><time datetime="2026-07-06T13:01:54.000Z">6 luglio 2026</time></p>
-        <a class="download-button" href="https://www.youtube.com/watch?v=OVKK1wD9I-g" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Il Dio che stiamo creando | Keynote all&#39;International AI Week ENIA 2026 (si apre in una nuova scheda)">Guarda su YouTube &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-11-title">
-      <a class="preview preview--video" href="https://www.youtube.com/shorts/6cWuO878Jm8" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Troppo bella per essere vera... (si apre in una nuova scheda)">
-        <img src="materiali/youtube-6cWuO878Jm8.jpg" alt="Anteprima: Troppo bella per essere vera..." loading="lazy" />
-        <span class="play-icon" aria-hidden="true">&#9654;</span>
-      </a>
-      <div class="document">
-        <p class="category">Short · YouTube</p>
-        <h2 id="materiale-11-title">Troppo bella per essere vera...</h2>
-        <p class="description">Una risposta fluida e convincente può nascondere un errore: un invito a verificare il contesto e a mantenere il pensiero critico.</p>
-        <p class="metadata"><time datetime="2026-04-30T11:50:08.000Z">30 aprile 2026</time></p>
-        <a class="download-button" href="https://www.youtube.com/shorts/6cWuO878Jm8" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Troppo bella per essere vera... (si apre in una nuova scheda)">Guarda su YouTube &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-12-title">
-      <a class="preview preview--video" href="https://www.youtube.com/shorts/sgbQGhpisgA" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: AI Act: il vero problema non è la tecnologia (si apre in una nuova scheda)">
-        <img src="materiali/youtube-sgbQGhpisgA.jpg" alt="Anteprima: AI Act: il vero problema non è la tecnologia" loading="lazy" />
-        <span class="play-icon" aria-hidden="true">&#9654;</span>
-      </a>
-      <div class="document">
-        <p class="category">Short · YouTube</p>
-        <h2 id="materiale-12-title">AI Act: il vero problema non è la tecnologia</h2>
-        <p class="description">AI Act, responsabilità e delega del giudizio: perché l’uso dell’intelligenza artificiale riguarda anche le scelte di chi la adotta.</p>
-        <p class="metadata"><time datetime="2026-04-28T12:51:07.000Z">28 aprile 2026</time></p>
-        <a class="download-button" href="https://www.youtube.com/shorts/sgbQGhpisgA" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: AI Act: il vero problema non è la tecnologia (si apre in una nuova scheda)">Guarda su YouTube &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-13-title">
-      <a class="preview preview--video" href="https://www.youtube.com/shorts/a5lMY9oM7_Y" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: AI - SCUOLA E ADOLESCENZA (si apre in una nuova scheda)">
-        <img src="materiali/youtube-a5lMY9oM7_Y.jpg" alt="Anteprima: AI - SCUOLA E ADOLESCENZA" loading="lazy" />
-        <span class="play-icon" aria-hidden="true">&#9654;</span>
-      </a>
-      <div class="document">
-        <p class="category">Short · YouTube</p>
-        <h2 id="materiale-13-title">AI - SCUOLA E ADOLESCENZA</h2>
-        <p class="description">L’AI è già nelle mani degli studenti: una riflessione sull’apprendimento e sul rischio di delegare anche il pensiero.</p>
-        <p class="metadata"><time datetime="2026-03-16T13:41:25.000Z">16 marzo 2026</time></p>
-        <a class="download-button" href="https://www.youtube.com/shorts/a5lMY9oM7_Y" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: AI - SCUOLA E ADOLESCENZA (si apre in una nuova scheda)">Guarda su YouTube &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-14-title">
-      <a class="preview preview--video" href="https://www.youtube.com/watch?v=qUbzKt1IY5o" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Cos’è l’AI Agentica? (spiegato in pochi secondi) (si apre in una nuova scheda)">
-        <img src="materiali/youtube-qUbzKt1IY5o.jpg" alt="Anteprima: Cos’è l’AI Agentica? (spiegato in pochi secondi)" loading="lazy" />
-        <span class="play-icon" aria-hidden="true">&#9654;</span>
-      </a>
-      <div class="document">
-        <p class="category">Video · YouTube</p>
-        <h2 id="materiale-14-title">Cos’è l’AI Agentica? (spiegato in pochi secondi)</h2>
-        <p class="description">Dalla risposta all’azione: una breve introduzione agli agenti AI, alla pianificazione e alle domande di controllo e responsabilità.</p>
-        <p class="metadata"><time datetime="2026-03-09T13:58:08.000Z">9 marzo 2026</time></p>
-        <a class="download-button" href="https://www.youtube.com/watch?v=qUbzKt1IY5o" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Cos’è l’AI Agentica? (spiegato in pochi secondi) (si apre in una nuova scheda)">Guarda su YouTube &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="materiale-15-title">
-      <a class="preview preview--video" href="https://www.youtube.com/watch?v=2eEUBzXWK7o" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Generative AI - cos&#39;è? (si apre in una nuova scheda)">
-        <img src="materiali/youtube-2eEUBzXWK7o.jpg" alt="Anteprima: Generative AI - cos&#39;è?" loading="lazy" />
-        <span class="play-icon" aria-hidden="true">&#9654;</span>
-      </a>
-      <div class="document">
-        <p class="category">Video · YouTube</p>
-        <h2 id="materiale-15-title">Generative AI - cos&#39;è?</h2>
-        <p class="description">Una spiegazione accessibile dell’AI generativa: come produce contenuti e perché è utile distinguere risposte plausibili e comprensione.</p>
-        <p class="metadata"><time datetime="2026-03-06T13:42:29.000Z">6 marzo 2026</time></p>
-        <a class="download-button" href="https://www.youtube.com/watch?v=2eEUBzXWK7o" target="_blank" rel="noopener noreferrer" aria-label="Guarda su YouTube: Generative AI - cos&#39;è? (si apre in una nuova scheda)">Guarda su YouTube &#8599;</a>
-      </div>
-    </article>
-    <article class="download-card" aria-labelledby="first-principles-title">
-      <a class="preview preview--article" href="https://medium.com/@gianluca.garofalo/first-principles-thinking-a5a8252e434c" target="_blank" rel="noopener noreferrer" aria-label="Leggi First Principles Thinking su Medium (si apre in una nuova scheda)">
-        <img src="materiali/medium-a5a8252e434c.jpg" alt="Anteprima: First Principles Thinking" loading="lazy" />
-      </a>
-      <div class="document">
-        <p class="category">Articolo &middot; Medium</p>
-        <h2 id="first-principles-title">First Principles Thinking</h2>
-        <p class="description">Risolvere problemi complessi partendo dai principi primi: mettere in discussione le assunzioni, distinguere i vincoli reali dalle abitudini e ricostruire soluzioni essenziali, dalle architetture IT agli agenti AI.</p>
-        <p class="metadata"><time datetime="2025-11-15T10:45:48.306Z">15 novembre 2025</time></p>
-        <a class="download-button" href="https://medium.com/@gianluca.garofalo/first-principles-thinking-a5a8252e434c" target="_blank" rel="noopener noreferrer" aria-label="Leggi First Principles Thinking su Medium (si apre in una nuova scheda)">Leggi su Medium &#8599;</a>
-      </div>
-    </article>
-    </section>
-  </main>
-  <footer>&copy;2026 Gianluca Garofalo · <a href="privacy.html">Privacy policy</a> · <a href="mailto:gianluca.garofalo@gmail.com">gianluca.garofalo@gmail.com</a></footer>
-  <script data-goatcounter="https://ggarofalo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
-</html>
+<body class="human-support"><a class="skip" href="#main">Salta al contenuto</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="header"><a class="brand" href="index.html" aria-label="Gianluca Garofalo, homepage"><img class="brand-logo" src="ggBT.png" alt="" width="72" height="72"><span class="brand-name">GIANLUCA GAROFALO<small>THE HUMAN VARIABLE</small></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>MENU <span aria-hidden="true">＋</span></button>
+<nav id="navigation" aria-label="Navigazione principale"><a href="index.html#build">Build</a><a href="index.html#think">Think</a><a href="index.html#speak">Speak</a><a href="index.html#write">Write</a><a href="index.html#contatti">Contatti</a><a href="risorse.html">Archivio ↗</a></nav>
+</header>
+<main id="main" class="wrap subpage"><span id="top"></span><span class="eyebrow">L’ARCHIVIO / HUMAN × MACHINE</span>
+<h1 class="display">Per continuare<br><span>a farsi domande.</span></h1>
+<p class="lead">Presentazioni, articoli e video. Tutti i materiali del sito, in uno spazio da esplorare.</p>
+<section class="section" aria-labelledby="material-title">
+<h2 id="material-title">Materiali dei talk</h2>
+<div class="resource-grid">
+<article class="resource">
+<div class="micro">01 / PRESENTAZIONE</div><img src="Slides071126_V01-preview.png" alt="Copertina della presentazione sull’AI e il pensiero critico" loading="lazy" width="1250" height="1327">
+<h3>L’AI ha sempre una risposta. Ma è quella giusta?</h3>
+<p>Fiducia, scelte e pensiero critico: dalle basi dell’AI generativa ai bias e agli errori dei modelli.</p>
+<div class="resource-links"><a href="AperitivoConLaScienza_V01.pptx" download>PowerPoint ↓</a><a href="AperitivoConLaScienza_V01.pdf" download>PDF ↓</a></div>
+</article>
+<article class="resource">
+<div class="micro">02 / PRESENTAZIONE</div><img src="GenerativeAI-preview.png" alt="Copertina Generative AI: quanto del tuo lavoro cognitivo sei disposto a delegare?" width="1280" height="720" loading="lazy">
+<h3>Generative AI: cosa sta cambiando davvero</h3>
+<p>Materiale per Rotary International – Milano Digital. AI classica, generativa e agentica, delega cognitiva e responsabilità per professionisti e imprese.</p><a href="GenerativeAI.pptx" download>PowerPoint ↓</a>
+</article></div>
+</section>
+<section aria-labelledby="archive-title">
+<h2 id="archive-title" class="display">Da leggere.<br><span>Da guardare.</span></h2>
+<form class="filters" aria-label="Filtra le risorse" hidden><label>FORMATO <select name="type"><option value="all">Tutti i formati</option><option>Articoli</option><option>Video</option></select></label><label>ARGOMENTO <select name="topic"><option value="all">Tutti gli argomenti</option><option>Educazione</option><option>Pensiero critico</option><option>Società e governance</option><option>Tecnologia</option></select></label><label>CERCA <input type="search" name="search" placeholder="Cerca nell’archivio…"></label><output aria-live="polite"></output>
+</form>
+<div class="publication-grid">
+<article class="publication featured" data-type="Articoli" data-topic="Educazione"><a href="https://medium.com/@gianluca.garofalo/prof-ma-come-fa-a-sapere-se-lho-fatto-io-o-chatgpt-5fccc05d1a4c" class="publication-image"><img src="materiali/medium-5fccc05d1a4c.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>21 settembre 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/prof-ma-come-fa-a-sapere-se-lho-fatto-io-o-chatgpt-5fccc05d1a4c">«Prof, ma come fa a sapere se l’ho fatto io o ChatGPT?» <span aria-hidden="true">↗</span></a></h3>
+<p>AI, compiti e apprendimento: una riflessione su come valutare ciò che uno studente comprende quando lavora con ChatGPT.</p><span class="topic">Educazione</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Società e governance"><a href="https://medium.com/@gianluca.garofalo/se-nessuno-pu%C3%B2-permettersi-di-fermarsi-a5a738ca1037" class="publication-image"><img src="materiali/medium-a5a738ca1037.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>10 settembre 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/se-nessuno-pu%C3%B2-permettersi-di-fermarsi-a5a738ca1037">Se nessuno può permettersi di fermarsi <span aria-hidden="true">↗</span></a></h3>
+<p>La corsa ai modelli più avanzati e il problema degli incentivi: perché rallentare diventa difficile anche quando emergono dubbi sulla sicurezza.</p><span class="topic">Società e governance</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Tecnologia"><a href="https://medium.com/@gianluca.garofalo/lultima-generazione-che-ricorda-il-mondo-prima-dell-ai-c6d4ebf73c92" class="publication-image"><img src="materiali/medium-c6d4ebf73c92.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>1 settembre 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/lultima-generazione-che-ricorda-il-mondo-prima-dell-ai-c6d4ebf73c92">L’ultima generazione che ricorda il mondo prima dell’AI <span aria-hidden="true">↗</span></a></h3>
+<p>Il confronto tra chi ricorda il mondo prima dell’AI generativa e chi crescerà considerandola una presenza normale nella vita quotidiana.</p><span class="topic">Tecnologia</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Tecnologia"><a href="https://medium.com/@gianluca.garofalo/lai-sta-uscendo-dallo-schermo-853574c6bf0f" class="publication-image"><img src="materiali/medium-853574c6bf0f.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>27 agosto 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/lai-sta-uscendo-dallo-schermo-853574c6bf0f">L’AI sta uscendo dallo schermo <span aria-hidden="true">↗</span></a></h3>
+<p>Quando l’AI acquisisce un corpo: robot umanoidi, abitudini domestiche e nuove domande sul rapporto tra persone e macchine.</p><span class="topic">Tecnologia</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Educazione"><a href="https://medium.com/@gianluca.garofalo/pap%C3%A0-ma-come-si-fa-un-videogioco-92089042919e" class="publication-image"><img src="materiali/medium-92089042919e.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>21 agosto 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/pap%C3%A0-ma-come-si-fa-un-videogioco-92089042919e">Papà, ma come si fa un videogioco? <span aria-hidden="true">↗</span></a></h3>
+<p>Costruire un videogioco insieme a un figlio usando l’AI: come cambiano la programmazione, il controllo del risultato e il significato di competenza.</p><span class="topic">Educazione</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Pensiero critico"><a href="https://medium.com/@gianluca.garofalo/quando-la-produttivit%C3%A0-supera-la-comprensione-e3e6f76ace79" class="publication-image"><img src="materiali/medium-e3e6f76ace79.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>20 luglio 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/quando-la-produttivit%C3%A0-supera-la-comprensione-e3e6f76ace79">Quando la produttività supera la comprensione <span aria-hidden="true">↗</span></a></h3>
+<p>Il debito cognitivo: cosa accade quando produciamo codice, documenti e decisioni più velocemente di quanto riusciamo a comprenderli.</p><span class="topic">Pensiero critico</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Società e governance"><a href="https://medium.com/@gianluca.garofalo/il-diritto-di-non-essere-giudicati-da-una-macchina-esiste-gi%C3%A0-45c8bc318e41" class="publication-image"><img src="materiali/medium-45c8bc318e41.png" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>10 luglio 2026</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/il-diritto-di-non-essere-giudicati-da-una-macchina-esiste-gi%C3%A0-45c8bc318e41">Il diritto di non essere giudicati da una macchina esiste già? <span aria-hidden="true">↗</span></a></h3>
+<p>Decisioni automatizzate e tutela delle persone: una riflessione sui limiti della delega agli algoritmi e sul ruolo della responsabilità umana.</p><span class="topic">Società e governance</span></div>
+</article>
+<article class="publication " data-type="Video" data-topic="Società e governance"><a href="https://www.youtube.com/watch?v=OVKK1wD9I-g" class="publication-image"><img src="materiali/youtube-OVKK1wD9I-g.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">VIDEO / YOUTUBE <span>6 luglio 2026</span></div>
+<h3><a href="https://www.youtube.com/watch?v=OVKK1wD9I-g">Il Dio che stiamo creando | Keynote all'International AI Week ENIA 2026 <span aria-hidden="true">↗</span></a></h3>
+<p>Il keynote all’International AI Week ENIA 2026: conoscenza, fiducia nelle risposte dell’AI e responsabilità che rimangono umane.</p><span class="topic">Società e governance</span></div>
+</article>
+<article class="publication " data-type="Video" data-topic="Società e governance"><a href="https://www.youtube.com/shorts/6cWuO878Jm8" class="publication-image"><img src="materiali/youtube-6cWuO878Jm8.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">VIDEO / YOUTUBE <span>30 aprile 2026</span></div>
+<h3><a href="https://www.youtube.com/shorts/6cWuO878Jm8">Troppo bella per essere vera... <span aria-hidden="true">↗</span></a></h3>
+<p>Una risposta fluida e convincente può nascondere un errore: un invito a verificare il contesto e a mantenere il pensiero critico.</p><span class="topic">Società e governance</span></div>
+</article>
+<article class="publication " data-type="Video" data-topic="Società e governance"><a href="https://www.youtube.com/shorts/sgbQGhpisgA" class="publication-image"><img src="materiali/youtube-sgbQGhpisgA.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">VIDEO / YOUTUBE <span>28 aprile 2026</span></div>
+<h3><a href="https://www.youtube.com/shorts/sgbQGhpisgA">AI Act: il vero problema non è la tecnologia <span aria-hidden="true">↗</span></a></h3>
+<p>AI Act, responsabilità e delega del giudizio: perché l’uso dell’intelligenza artificiale riguarda anche le scelte di chi la adotta.</p><span class="topic">Società e governance</span></div>
+</article>
+<article class="publication " data-type="Video" data-topic="Società e governance"><a href="https://www.youtube.com/shorts/a5lMY9oM7_Y" class="publication-image"><img src="materiali/youtube-a5lMY9oM7_Y.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">VIDEO / YOUTUBE <span>16 marzo 2026</span></div>
+<h3><a href="https://www.youtube.com/shorts/a5lMY9oM7_Y">AI - SCUOLA E ADOLESCENZA <span aria-hidden="true">↗</span></a></h3>
+<p>L’AI è già nelle mani degli studenti: una riflessione sull’apprendimento e sul rischio di delegare anche il pensiero.</p><span class="topic">Società e governance</span></div>
+</article>
+<article class="publication " data-type="Video" data-topic="Tecnologia"><a href="https://www.youtube.com/watch?v=qUbzKt1IY5o" class="publication-image"><img src="materiali/youtube-qUbzKt1IY5o.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">VIDEO / YOUTUBE <span>9 marzo 2026</span></div>
+<h3><a href="https://www.youtube.com/watch?v=qUbzKt1IY5o">Cos’è l’AI Agentica? (spiegato in pochi secondi) <span aria-hidden="true">↗</span></a></h3>
+<p>Dalla risposta all’azione: una breve introduzione agli agenti AI, alla pianificazione e alle domande di controllo e responsabilità.</p><span class="topic">Tecnologia</span></div>
+</article>
+<article class="publication " data-type="Video" data-topic="Pensiero critico"><a href="https://www.youtube.com/watch?v=2eEUBzXWK7o" class="publication-image"><img src="materiali/youtube-2eEUBzXWK7o.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">VIDEO / YOUTUBE <span>6 marzo 2026</span></div>
+<h3><a href="https://www.youtube.com/watch?v=2eEUBzXWK7o">Generative AI - cos'è? <span aria-hidden="true">↗</span></a></h3>
+<p>Una spiegazione accessibile dell’AI generativa: come produce contenuti e perché è utile distinguere risposte plausibili e comprensione.</p><span class="topic">Pensiero critico</span></div>
+</article>
+<article class="publication " data-type="Articoli" data-topic="Pensiero critico"><a href="https://medium.com/@gianluca.garofalo/first-principles-thinking-a5a8252e434c" class="publication-image"><img src="materiali/medium-a5a8252e434c.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></a>
+<div class="publication-copy">
+<div class="micro">ARTICOLO / MEDIUM <span>15 novembre 2025</span></div>
+<h3><a href="https://medium.com/@gianluca.garofalo/first-principles-thinking-a5a8252e434c">First Principles Thinking <span aria-hidden="true">↗</span></a></h3>
+<p>Risolvere problemi complessi partendo dai principi primi: mettere in discussione le assunzioni, distinguere i vincoli reali dalle abitudini e ricostruire soluzioni essenziali, dalle architetture IT agli agenti AI.</p><span class="topic">Pensiero critico</span></div>
+</article></div>
+<p class="empty-state" hidden>Nessun contenuto trovato. Prova un’altra ricerca.</p>
+</section>
+</main>
+<footer class="footer wrap"><a class="footer-mark" href="index.html">GG / THE HUMAN VARIABLE</a><span>© 2026 Gianluca Garofalo</span><a href="risorse.html">Archivio risorse</a><a href="bio.html">Bio</a><a href="privacy.html">Privacy</a><a href="#top">TORNA SU ↑</a>
+</footer>
+</body></html>
