@@ -30,7 +30,7 @@
   analytics.addEventListener('load', () => {
     if (typeof window.goatcounter?.count !== 'function') return;
     window.goatcounter.count({ path: '/truffe-digitali/', title: document.title, referrer });
-    track('guide_page_view');
+    track('truffeDigitali');
     pending.splice(0).forEach(event => window.goatcounter.count(event));
   });
   document.head.append(analytics);
@@ -57,7 +57,7 @@
       const button = document.getElementById('copy-link');
       button.dataset.copied = 'true';
       button.title = 'Link copiato';
-      track('copy_link');
+      track('copy_link_truffeDigitali');
     } catch {
       const button = document.getElementById('copy-link');
       delete button.dataset.copied;
@@ -75,7 +75,7 @@
     button.addEventListener('click', async () => {
       try {
         await navigator.share({ title, text: message, url: canonical });
-        track('share_native');
+        track('share_native_truffeDigitali');
         status.textContent = 'Documento condiviso.';
       } catch (error) {
         if (error.name !== 'AbortError') status.textContent = 'Usa uno dei pulsanti di condivisione disponibili.';
