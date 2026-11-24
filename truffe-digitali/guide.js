@@ -2,7 +2,7 @@
   'use strict';
   const canonical = 'https://ggarofalo-dev.github.io/truffe-digitali/';
   const title = 'Truffe Digitali | 10 regole per riconoscerle e proteggersi';
-  const message = 'Dieci regole pratiche di Gianluca Garofalo per riconoscere le truffe digitali e proteggere te stesso e i tuoi familiari. Un documento da leggere, stampare e condividere.';
+  const message = 'Dieci regole pratiche per riconoscere le truffe digitali e proteggere te stesso e i tuoi familiari. Un documento da leggere, stampare e condividere.';
   const params = new URLSearchParams(location.search);
   const campaign = new URLSearchParams();
   // Only campaign labels: never forward arbitrary query parameters or identifiers.
