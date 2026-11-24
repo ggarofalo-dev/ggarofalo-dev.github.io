@@ -1,0 +1,18 @@
+/* Header comune alla homepage e alla pagina Truffe Digitali. */
+body.site-shell{padding-top:0}
+.site-shell .topbar-shell{position:sticky;top:0;left:0;width:100%;z-index:1000;background:rgba(248,246,242,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(28,36,48,.08)}
+.site-shell .topbar{width:min(1120px,calc(100% - 32px));min-height:78px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.site-shell .topbar-brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.site-shell .topbar-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.site-shell .topbar-logo img{width:75px;height:75px;object-fit:contain;display:block}
+.site-shell .topbar-nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;line-height:1.65}
+.site-shell .topbar-nav a{position:relative;text-decoration:none;color:#66758a;font-size:14px;transition:color .2s ease}
+.site-shell .topbar-nav a:hover{color:#2f5fa7}
+.site-shell .topbar-nav a:after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#2f5fa7;transition:width .2s ease}
+.site-shell .topbar-nav a:hover:after{width:100%}
+.site-shell .topbar a:focus-visible{outline:3px solid #005fcc;outline-offset:4px}
+.site-footer{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:0 0 24px;border:0}
+.site-footer .footer-note{margin-top:24px;padding-top:18px;border-top:1px solid rgba(28,36,48,.08);color:#66758a;font-size:14px;text-align:center;line-height:1.65;overflow-wrap:anywhere}
+@media(max-width:720px){.site-shell .topbar{min-height:96px;align-items:flex-start;flex-direction:column;justify-content:center;padding:12px 0}.site-shell .topbar-nav{gap:14px}.site-shell section[id]{scroll-margin-top:90px}}
+@media(prefers-reduced-motion:reduce){.site-shell .topbar-nav a,.site-shell .topbar-nav a:after{transition:none}}
+@media print{.site-shell .topbar-shell,.site-footer{display:none}}
