@@ -551,8 +551,9 @@
     .guide-callout a:focus-visible{outline:3px solid white;outline-offset:5px}
     @media(max-width:700px){.guide-callout{flex-direction:column;align-items:stretch;padding:24px}.guide-callout a{width:100%}}
   </style>
+  <link rel="stylesheet" href="site-chrome.css">
 </head>
-<body>
+<body class="site-shell">
 
   <div class="topbar-shell">
     <div class="topbar">
@@ -563,11 +564,11 @@
         <!--div class="topbar-brand-text">Gianluca Garofalo</div-->
       </a>
 
-      <nav class="topbar-nav">
+      <nav class="topbar-nav" aria-label="Navigazione principale">
         <a href="#bio">Bio</a>
         <a href="#competenze">Competenze</a>
 		<a href="#talk">Talk</a>
-        <a href="#libro">In evidenza</a>
+        <a href="#libro-truffe-digitali">Pubblicazioni</a>
 		
         <a href="#canali">Canali</a>
         <a href="risorse.html">Risorse</a>
@@ -737,10 +738,6 @@
           <div class="focus-box">
             <strong style="color:#1b2430;">Perché leggerlo ora:</strong> perché una richiesta apparentemente credibile può spingerci ad agire senza verificare. Comprendere i meccanismi dell’inganno aiuta a fermarsi, controllare e scegliere come rispondere.
           </div>
-          <a class="link-card" href="https://ggarofalo-dev.github.io/truffe-digitali/">
-            <div class="link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H4V2h2Zm1 2H6v16h12V8h-5V4H7Zm8 1v1h1l-1-1ZM8 11h8v2H8v-2Zm0 4h8v2H8v-2Z"/></svg></div>
-            <div class="link-text"><strong>Scarica il PDF delle 10 regole</strong></div>
-          </a>
         </div>
       </div>
     </section>
