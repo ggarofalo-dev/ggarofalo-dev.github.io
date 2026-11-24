@@ -382,6 +382,10 @@
       box-shadow: 0 16px 32px rgba(28, 36, 48, 0.10);
     }
 
+    #libro-truffe-digitali .book-cover-card img {
+      height: auto;
+    }
+
     .book-content {
       display: flex;
       flex-direction: column;
@@ -537,6 +541,15 @@
         line-height: 1.85;
       }
     }
+  
+    /* Decalogo Truffe Digitali: richiamo isolato, coerente con il sito. */
+    .guide-callout{display:flex;justify-content:space-between;align-items:center;gap:26px;background:#0b2136;color:#fff;border-left:5px solid #ffbf00;border-radius:16px;padding:28px 30px;margin:24px 0 0}
+    .guide-callout h2{color:#fff;margin:5px 0 9px;font-size:26px;line-height:1.25}
+    .guide-callout p{margin:0;color:#e0e6ed;font-size:16px;max-width:650px}
+    .guide-callout .guide-label{color:#ffcf40;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .guide-callout a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;flex-shrink:0;background:#ffbf00;color:#0b2136;padding:12px 18px;border-radius:7px;font-size:16px;font-weight:700;text-decoration:none}
+    .guide-callout a:focus-visible{outline:3px solid white;outline-offset:5px}
+    @media(max-width:700px){.guide-callout{flex-direction:column;align-items:stretch;padding:24px}.guide-callout a{width:100%}}
   </style>
 </head>
 <body>
@@ -696,7 +709,48 @@
     </section>
 	
 	
-	<section class="book-section" id="libro">
+	<section class="book-section" id="libro-truffe-digitali" aria-labelledby="truffe-digitali-title">
+      <h2 id="truffe-digitali-title">Truffe Digitali</h2>
+      <div class="book-layout">
+        <div class="book-cover-card">
+          <img src="./trfimg/Truffe_Digitali_01.jpg" width="2400" height="3000" alt="Copertina del libro Truffe Digitali di Gianluca Garofalo" loading="lazy" />
+          <a class="link-card amazon-cta" href="https://www.amazon.it/dp/B0HS79MDF1" target="_blank" rel="noopener noreferrer">
+            <div class="link-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 17.5c3.5 2 7.5 2 11 0 .3-.2.7 0 .7.3 0 .1-.1.2-.2.3-3.8 3-9.8 3-13.6 0-.2-.1-.2-.4 0-.5.1-.2.4-.2.6-.1Zm10.8-1.1c-.2-.2-1.3-.1-1.8 0-.2 0-.3-.1-.3-.2 0-.1.1-.2.2-.3 1.4-.8 3.7-.6 3.9-.3.2.3-.1 2.6-1.4 3.6-.2.1-.3 0-.3-.1-.1-.2.2-1.2-.3-1.7ZM7 9.5c0-1.7 1.3-2.9 3.3-2.9 1 0 1.8.2 2.4.6.6.4.9 1 .9 1.9v3.5c0 .7.1 1.2.4 1.7.1.2 0 .4-.1.5l-1.2 1c-.2.1-.4.1-.5 0-.3-.4-.5-.7-.7-1.2-.8.8-1.6 1.2-2.8 1.2-1.6 0-2.8-1-2.8-2.5 0-1.2.6-2 1.7-2.5.9-.4 2.2-.5 3.2-.6v-.2c0-.4 0-.8-.2-1.1-.2-.3-.5-.4-.9-.4-.7 0-1.3.4-1.5 1.1 0 .2-.2.3-.4.3l-1.6-.2c-.2 0-.3-.2-.3-.4Zm5.1 2.2c-.6 0-1.3.1-1.9.3-.5.2-.9.6-.9 1.2 0 .6.4 1 .9 1 .4 0 .8-.2 1.1-.5.4-.4.5-.8.5-1.4v-.6Z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <strong>Scopri il libro su Amazon</strong>
+              <span>Truffe Digitali</span>
+            </div>
+          </a>
+        </div>
+        <div class="book-content">
+          <div class="focus-box">
+            <strong style="color:#1b2430;">Truffe Digitali</strong><br>
+            Scopri 19 tipologie di truffe digitali attraverso esempi concreti e consigli pratici. Impara a riconoscere gli inganni e a proteggere te stesso e le persone a cui tieni.
+          </div>
+          <div class="focus-box">
+            <strong style="color:#1b2430;">Per chi è:</strong> per chi usa ogni giorno strumenti digitali e vuole riconoscere le richieste sospette, verificare prima di fidarsi e aiutare i propri familiari a fare altrettanto.
+          </div>
+          <div class="focus-box">
+            <strong style="color:#1b2430;">Perché leggerlo ora:</strong> perché una richiesta apparentemente credibile può spingerci ad agire senza verificare. Comprendere i meccanismi dell’inganno aiuta a fermarsi, controllare e scegliere come rispondere.
+          </div>
+          <a class="link-card" href="https://ggarofalo-dev.github.io/truffe-digitali/">
+            <div class="link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H4V2h2Zm1 2H6v16h12V8h-5V4H7Zm8 1v1h1l-1-1ZM8 11h8v2H8v-2Zm0 4h8v2H8v-2Z"/></svg></div>
+            <div class="link-text"><strong>Scarica il PDF delle 10 regole</strong></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="guide-callout" aria-labelledby="guida-gratuita-titolo">
+      <div><span class="guide-label">Due pagine, dieci regole</span><h2 id="guida-gratuita-titolo">Truffe Digitali: 10 regole per proteggersi</h2><p>Dieci regole pratiche per riconoscere i tentativi di truffa e proteggersi. Un documento da leggere, conservare, stampare e condividere.</p></div>
+      <a href="./truffe-digitali/">Leggi il decalogo</a>
+    </aside>
+
+    <section class="book-section" id="libro">
       <h2>Crescere con l'AI</h2>
       <p class="section-intro">
         Una guida per ragazzi, genitori ed educatori per imparare a usare l’intelligenza artificiale con curiosità, consapevolezza e spirito critico.
